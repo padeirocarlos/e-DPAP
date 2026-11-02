@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dpap.gov.mz/schema/form_schema.schema.json",
+  "title": "e-DPAP form schema",
+  "description": "Structural contract for form_schema.json (BRD FR-FORM-1). The form schema is the single source of truth for DB, UI, validation and exports.",
+  "type": "object",
+  "required": ["meta", "code_lists", "modules"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["version", "locale_default", "locales"],
+      "additionalProperties": true,
+      "properties": {
+        "version": { "type": "string" },
+        "locale_default": { "type": "string" },
+        "locales": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "code_lists": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": { "$ref": "#/$defs/codeItem" }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/module" }
+    }
+  },
+  "$defs": {
+    "codeItem": {
+      "type": "object",
+      "required": ["code", "label_pt"],
+      "additionalProperties": true,
+      "properties": {
+        "code": { "type": "integer" },
+        "label_pt": { "type": "string", "minLength": 1 },
+        "label_en": { "type": "string" },
+        "active": { "type": "boolean" },
+        "order": { "type": "integer" }
+      }
+    },
+    "option": {
+      "type": "object",
+      "required": ["code", "label_pt"],
+      "additionalProperties": true,
+      "properties": {
+        "code": { "type": "integer" },
+        "label_pt": { "type": "string", "minLength": 1 },
+        "label_en": { "type": "string" }
+      }
+    },
+    "fieldType": {
+      "enum": [
+        "text", "integer", "decimal", "select_one", "select_multiple",
+        "yes_no", "date", "time", "geopoint", "phone", "email", "image", "number"
+      ]
+    },
+    "field": {
+      "type": "object",
+      "required": ["id", "var", "name", "label_pt", "type", "required"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[0-9A-O]+\\.[0-9]{2}$" },
+        "var": { "type": "string", "pattern": "^q[0-9A-O]+_[0-9]{2}$" },
+        "name": { "type": "string", "minLength": 1 },
+        "label_pt": { "type": "string", "minLength": 1 },
+        "label_en": { "type": "string" },
+        "type": { "$ref": "#/$defs/fieldType" },
+        "required": { "enum": ["Y", "C", "N"] },
+        "relevance": { "type": "string" },
+        "constraint": { "type": "string" },
+        "constraint_message_pt": { "type": "string" },
+        "options": { "type": "array", "items": { "$ref": "#/$defs/option" } },
+        "list": { "type": "string" },
+        "other_code": { "type": "integer" },
+        "exclusive_code": { "type": "integer" },
+        "max_select": { "type": "integer" },
+        "unit": { "type": "string" },
+        "subfields": { "type": "array", "items": { "type": "string" } },
+        "validation": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "enum": ["select_one", "select_multiple"] } } },
+          "then": {
+            "anyOf": [
+              { "required": ["options"] },
+              { "required": ["list"] }
+            ]
+          }
+        }
+      ]
+    },
+    "column": {
+      "type": "object",
+      "required": ["col", "name", "label_pt", "type"],
+      "additionalProperties": true,
+      "properties": {
+        "col": { "type": "string", "pattern": "^c[0-9]+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "label_pt": { "type": "string", "minLength": 1 },
+        "label_en": { "type": "string" },
+        "type": { "$ref": "#/$defs/fieldType" },
+        "options": { "type": "array", "items": { "$ref": "#/$defs/option" } },
+        "list": { "type": "string" },
+        "role": { "enum": ["row_key"] },
+        "readonly": { "type": "boolean" },
+        "calc": { "type": "string" },
+        "constraint": { "type": "string" },
+        "constraint_message_pt": { "type": "string" },
+        "format": { "type": "string" },
+        "validation": { "type": "string" }
+      }
+    },
+    "roster": {
+      "type": "object",
+      "required": ["id", "name", "table", "kind", "label_pt", "columns"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "var": { "type": "string" },
+        "name": { "type": "string", "minLength": 1 },
+        "table": { "type": "string", "pattern": "^roster_[a-z0-9_]+$" },
+        "kind": { "enum": ["fixed", "repeatable"] },
+        "label_pt": { "type": "string", "minLength": 1 },
+        "label_en": { "type": "string" },
+        "paper_rows": { "type": "integer" },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["code", "label_pt"],
+            "properties": {
+              "code": { "type": "integer" },
+              "label_pt": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "columns": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/column" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "fixed" } } },
+          "then": { "required": ["rows"] }
+        }
+      ]
+    },
+    "module": {
+      "type": "object",
+      "required": ["key", "order", "title_pt", "applies_to", "relevance", "fields", "rosters"],
+      "additionalProperties": false,
+      "properties": {
+        "key": { "type": "string" },
+        "order": { "type": "integer" },
+        "title_pt": { "type": "string", "minLength": 1 },
+        "title_en": { "type": "string" },
+        "applies_to": { "type": "array", "items": { "type": "integer" } },
+        "relevance": { "type": "string" },
+        "fields": { "type": "array", "items": { "$ref": "#/$defs/field" } },
+        "rosters": { "type": "array", "items": { "$ref": "#/$defs/roster" } }
+      }
+    }
+  }
+}

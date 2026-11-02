@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/*
+ * Mozambique-flag theme (government institution).
+ *
+ * Colour: the brand hue is the flag's green. The whole app already uses the
+ * `emerald-*` ramp as its brand colour, so we remap that ramp to Mozambique
+ * green here — every existing `bg-emerald-600`/`text-emerald-700`/… instantly
+ * becomes flag-green with no per-file churn. Flag accents (red, gold, black)
+ * are exposed as `flag-*` colour utilities for chrome accents (the flag stripe,
+ * the login hero), while semantic red/amber stay for errors/warnings.
+ *
+ * Typography: Microsoft-Word point sizes as reference — titles ~16pt (≈21px)
+ * and regular labels/body ~12pt (16px). We remap Tailwind's text-size scale so
+ * the sizing applies across both apps without touching each component:
+ *   xs ≈10pt(13px) · sm =12pt(16px, regular label) · base ≈13pt(17px)
+ *   lg ≈14pt(19px, secondary title) · xl & 2xl =16pt(21px, title)
+ * Large data numerals (text-3xl/4xl) keep their prominence.
+ */
+@theme {
+  /* Brand ramp = Mozambique flag green. */
+  --color-emerald-50: #e9f8ef;
+  --color-emerald-100: #c7eed6;
+  --color-emerald-200: #93ddb0;
+  --color-emerald-300: #57c987;
+  --color-emerald-400: #23b065;
+  --color-emerald-500: #009a4e;
+  --color-emerald-600: #008a43;
+  --color-emerald-700: #007236;
+  --color-emerald-800: #005b2c;
+  --color-emerald-900: #0a4a27;
+  --color-emerald-950: #042615;
+
+  /* Flag accent colours. */
+  --color-flag-green: #009639;
+  --color-flag-red: #d21034;
+  --color-flag-red-dark: #a50d29;
+  --color-flag-gold: #ffd100;
+  --color-flag-black: #141414;
+
+  /* Type scale — Word points as reference (see note above). */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.1rem;
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.45rem;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.55rem;
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: 1.6rem;
+  --text-xl: 1.3125rem;
+  --text-xl--line-height: 1.7rem;
+  --text-2xl: 1.3125rem;
+  --text-2xl--line-height: 1.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+ * Thin Mozambique-flag stripe for chrome accents (header top, login hero).
+ * Set the height in markup (e.g. h-1 / h-1.5); this only paints the gradient:
+ * red hoist · green · white · black · white · gold, echoing the flag bands.
+ */
+.mz-flag-stripe {
+  background: linear-gradient(
+    to right,
+    var(--color-flag-red) 0 10%,
+    var(--color-flag-green) 10% 40%,
+    #ffffff 40% 43%,
+    var(--color-flag-black) 43% 58%,
+    #ffffff 58% 61%,
+    var(--color-flag-gold) 61% 100%
+  );
+}

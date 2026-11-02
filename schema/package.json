@@ -1,0 +1,21 @@
+{
+  "name": "@dpap/schema",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "e-DPAP form schema (BRD Section 7) + shared relevance/constraint expression engine. Single source of truth for DB, UI, validation and exports (BRD FR-FORM-1).",
+  "main": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "validate": "node scripts/validate.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.9",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1",
+    "typescript": "5.9.2",
+    "vitest": "2.1.9"
+  }
+}

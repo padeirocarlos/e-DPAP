@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/*
+ * Mozambique-flag theme — kept in sync with DPAP-web (src/app/globals.css).
+ * The brand `emerald-*` ramp is remapped to the flag's green so every existing
+ * usage becomes flag-green; `flag-*` accents (red/gold/black) are available for
+ * chrome. Type scale uses Microsoft-Word points as reference: titles ~16pt
+ * (≈21px), regular labels/body ~12pt (16px).
+ */
+@theme {
+  --color-emerald-50: #e9f8ef;
+  --color-emerald-100: #c7eed6;
+  --color-emerald-200: #93ddb0;
+  --color-emerald-300: #57c987;
+  --color-emerald-400: #23b065;
+  --color-emerald-500: #009a4e;
+  --color-emerald-600: #008a43;
+  --color-emerald-700: #007236;
+  --color-emerald-800: #005b2c;
+  --color-emerald-900: #0a4a27;
+  --color-emerald-950: #042615;
+
+  --color-flag-green: #009639;
+  --color-flag-red: #d21034;
+  --color-flag-red-dark: #a50d29;
+  --color-flag-gold: #ffd100;
+  --color-flag-black: #141414;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.1rem;
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.45rem;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.55rem;
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: 1.6rem;
+  --text-xl: 1.3125rem;
+  --text-xl--line-height: 1.7rem;
+  --text-2xl: 1.3125rem;
+  --text-2xl--line-height: 1.75rem;
+}
+
+/* Base: comfortable tap targets and a light/dark background for the field app. */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  background: #f4f4f5;
+  color: #18181b;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #09090b;
+    color: #fafafa;
+  }
+}
+
+/* Thin Mozambique-flag stripe for chrome accents (kept in sync with web). */
+.mz-flag-stripe {
+  background: linear-gradient(
+    to right,
+    var(--color-flag-red) 0 10%,
+    var(--color-flag-green) 10% 40%,
+    #ffffff 40% 43%,
+    var(--color-flag-black) 43% 58%,
+    #ffffff 58% 61%,
+    var(--color-flag-gold) 61% 100%
+  );
+}

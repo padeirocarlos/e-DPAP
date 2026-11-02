@@ -1,0 +1,725 @@
+{
+  "meta": {
+    "version": "1.0",
+    "title_pt": "Questionário de Mapeamento Multi-actor e Multi-nível",
+    "title_en": "Multi-actor and multi-level mapping questionnaire",
+    "source": "BRD Section 7 (Field catalogue) v1.0",
+    "locale_default": "pt-MZ",
+    "locales": ["pt", "en"],
+    "currency": "MZN",
+    "coordinate_system": "EPSG:4326"
+  },
+
+  "code_lists": {
+    "special": [
+      { "code": 96, "label_pt": "Outro (especificar)", "label_en": "Other (specify)", "active": true, "order": 1 },
+      { "code": 98, "label_pt": "Não sabe", "label_en": "Don't know", "active": true, "order": 2 },
+      { "code": 99, "label_pt": "Não respondeu", "label_en": "Refused / no answer", "active": true, "order": 3 },
+      { "code": -1, "label_pt": "Não se aplica", "label_en": "Not applicable", "active": true, "order": 4 }
+    ],
+    "yes_no": [
+      { "code": 1, "label_pt": "Sim", "label_en": "Yes", "active": true, "order": 1 },
+      { "code": 2, "label_pt": "Não", "label_en": "No", "active": true, "order": 2 }
+    ],
+    "districts": [
+      { "code": 1, "label_pt": "Boane", "active": true, "order": 1 },
+      { "code": 2, "label_pt": "Magude", "active": true, "order": 2 },
+      { "code": 3, "label_pt": "Manhiça", "active": true, "order": 3 },
+      { "code": 4, "label_pt": "Marracuene", "active": true, "order": 4 },
+      { "code": 5, "label_pt": "Matola", "active": true, "order": 5 },
+      { "code": 6, "label_pt": "Matutuíne", "active": true, "order": 6 },
+      { "code": 7, "label_pt": "Moamba", "active": true, "order": 7 },
+      { "code": 8, "label_pt": "Namaacha", "active": true, "order": 8 }
+    ],
+    "actor_type": [
+      { "code": 1, "label_pt": "Produtor individual (agricultor, criador, pescador, aquacultor)", "label_en": "Individual producer", "active": true, "order": 1 },
+      { "code": 2, "label_pt": "Associação, cooperativa ou grupo de produtores", "label_en": "Association, cooperative or producer group", "active": true, "order": 2 },
+      { "code": 3, "label_pt": "Organização (ONG, OSC, agência de cooperação, instituição de investigação ou ensino)", "label_en": "Organisation", "active": true, "order": 3 },
+      { "code": 4, "label_pt": "Empresa ou operador privado", "label_en": "Company or private operator", "active": true, "order": 4 },
+      { "code": 5, "label_pt": "Instituição pública", "label_en": "Public institution", "active": true, "order": 5 }
+    ],
+    "operation_level": [
+      { "code": 1, "label_pt": "Nacional", "active": true, "order": 1 },
+      { "code": 2, "label_pt": "Provincial", "active": true, "order": 2 },
+      { "code": 3, "label_pt": "Distrital", "active": true, "order": 3 },
+      { "code": 4, "label_pt": "Posto Administrativo", "active": true, "order": 4 },
+      { "code": 5, "label_pt": "Localidade / comunitário", "active": true, "order": 5 }
+    ],
+    "crops": [
+      { "code": 1, "label_pt": "Milho", "active": true, "order": 1 },
+      { "code": 2, "label_pt": "Arroz", "active": true, "order": 2 },
+      { "code": 3, "label_pt": "Mapira / mexoeira", "active": true, "order": 3 },
+      { "code": 4, "label_pt": "Feijão nhemba", "active": true, "order": 4 },
+      { "code": 5, "label_pt": "Feijão manteiga", "active": true, "order": 5 },
+      { "code": 6, "label_pt": "Feijão vulgar", "active": true, "order": 6 },
+      { "code": 7, "label_pt": "Amendoim", "active": true, "order": 7 },
+      { "code": 8, "label_pt": "Mandioca", "active": true, "order": 8 },
+      { "code": 9, "label_pt": "Batata-doce", "active": true, "order": 9 },
+      { "code": 10, "label_pt": "Batata reno", "active": true, "order": 10 },
+      { "code": 11, "label_pt": "Tomate", "active": true, "order": 11 },
+      { "code": 12, "label_pt": "Cebola", "active": true, "order": 12 },
+      { "code": 13, "label_pt": "Couve / repolho", "active": true, "order": 13 },
+      { "code": 14, "label_pt": "Alface", "active": true, "order": 14 },
+      { "code": 15, "label_pt": "Pimento / piri-piri", "active": true, "order": 15 },
+      { "code": 16, "label_pt": "Abóbora / pepino", "active": true, "order": 16 },
+      { "code": 17, "label_pt": "Banana", "active": true, "order": 17 },
+      { "code": 18, "label_pt": "Citrinos", "active": true, "order": 18 },
+      { "code": 19, "label_pt": "Manga", "active": true, "order": 19 },
+      { "code": 20, "label_pt": "Ananás", "active": true, "order": 20 },
+      { "code": 21, "label_pt": "Papaia", "active": true, "order": 21 },
+      { "code": 22, "label_pt": "Cajueiro", "active": true, "order": 22 },
+      { "code": 23, "label_pt": "Coqueiro", "active": true, "order": 23 },
+      { "code": 24, "label_pt": "Cana-de-açúcar", "active": true, "order": 24 },
+      { "code": 25, "label_pt": "Gergelim", "active": true, "order": 25 },
+      { "code": 26, "label_pt": "Soja", "active": true, "order": 26 },
+      { "code": 27, "label_pt": "Girassol", "active": true, "order": 27 },
+      { "code": 28, "label_pt": "Forragens", "active": true, "order": 28 },
+      { "code": 96, "label_pt": "Outra (especificar)", "active": true, "order": 96 }
+    ]
+  },
+
+  "modules": [
+    {
+      "key": "0",
+      "order": 0,
+      "title_pt": "Identificação e controlo da entrevista",
+      "title_en": "Interview identification and control",
+      "applies_to": [1, 2, 3, 4, 5],
+      "relevance": "always",
+      "fields": [
+        { "id": "0.01", "var": "q0_01", "name": "questionnaire_number", "label_pt": "Número do questionário", "label_en": "Questionnaire number (system-generated)", "type": "integer", "required": "Y", "system_generated": true, "validation": "integer >= 0, max 6 digits; primary key, unique, auto-generated" },
+        { "id": "0.02", "var": "q0_02", "name": "interview_date", "label_pt": "Data da entrevista", "label_en": "Interview date", "type": "date", "required": "Y", "validation": "valid date <= today" },
+        { "id": "0.03", "var": "q0_03", "name": "start_time", "label_pt": "Hora de início", "label_en": "Start time", "type": "time", "required": "Y" },
+        { "id": "0.04", "var": "q0_04", "name": "enumerator", "label_pt": "Nome e código do inquiridor", "label_en": "Enumerator name and code", "type": "text", "required": "Y", "validation": "max 255 chars" },
+        { "id": "0.05", "var": "q0_05", "name": "supervisor", "label_pt": "Nome do supervisor", "label_en": "Supervisor name", "type": "text", "required": "Y", "validation": "max 255 chars" },
+        { "id": "0.06", "var": "q0_06", "name": "district", "label_pt": "Distrito", "label_en": "District", "type": "select_one", "required": "Y", "list": "districts" },
+        { "id": "0.07", "var": "q0_07", "name": "admin_post", "label_pt": "Posto Administrativo", "label_en": "Administrative Post", "type": "text", "required": "Y", "validation": "max 255 chars", "todo": "OI-1: convert to select_one cascade when DPAP supplies codes" },
+        { "id": "0.08", "var": "q0_08", "name": "locality", "label_pt": "Localidade", "label_en": "Locality", "type": "text", "required": "Y", "validation": "max 255 chars", "todo": "OI-1" },
+        { "id": "0.09", "var": "q0_09", "name": "village", "label_pt": "Povoado / Bairro", "label_en": "Village / neighbourhood", "type": "text", "required": "Y", "validation": "max 255 chars", "todo": "OI-1" },
+        { "id": "0.10", "var": "q0_10", "name": "gps", "label_pt": "Coordenadas geográficas do actor (WGS84, graus decimais)", "label_en": "Actor geographic coordinates (WGS84, decimal degrees)", "type": "geopoint", "required": "Y", "validation": "lat/lon/alt/accuracy; accuracy <= 10 m (warn); must fall inside Maputo Province polygon (hard warning)" },
+        { "id": "0.11", "var": "q0_11", "name": "photo", "label_pt": "Fotografia da sede / exploração / embarcação", "label_en": "Photo of headquarters / farm / boat", "type": "image", "required": "N", "validation": "JPEG, max 2 MB after client-side compression" },
+        { "id": "0.12", "var": "q0_12", "name": "consent", "label_pt": "O respondente aceita participar no inquérito, após leitura da declaração de consentimento?", "label_en": "Respondent agrees to participate after the consent statement is read", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ], "skip": "If = 2 → skip to 0.15" },
+        { "id": "0.13", "var": "q0_13", "name": "actor_type", "label_pt": "Tipo de actor", "label_en": "Actor type (drives module routing)", "type": "select_one", "required": "Y", "list": "actor_type", "relevance": "q0_12 = 1" },
+        { "id": "0.14", "var": "q0_14", "name": "end_time", "label_pt": "Hora de fim", "label_en": "End time", "type": "time", "required": "Y", "relevance": "q0_12 = 1", "validation": "> q0_03" },
+        { "id": "0.15", "var": "q0_15", "name": "interview_result", "label_pt": "Resultado da entrevista", "label_en": "Interview result", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Completa" }, { "code": 2, "label_pt": "Parcial" }, { "code": 3, "label_pt": "Recusa" }, { "code": 4, "label_pt": "Respondente ausente" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 }
+      ],
+      "rosters": []
+    },
+
+    {
+      "key": "A",
+      "order": 1,
+      "title_pt": "Identificação e caracterização geral do actor",
+      "title_en": "Actor identification and general profile",
+      "applies_to": [1, 2, 3, 4, 5],
+      "relevance": "q0_12 = 1",
+      "fields": [
+        { "id": "A.01", "var": "qA_01", "name": "actor_name", "label_pt": "Nome completo do actor / designação da entidade", "label_en": "Full name of actor / entity", "type": "text", "required": "Y", "validation": "max 255 chars" },
+        { "id": "A.02", "var": "qA_02", "name": "acronym", "label_pt": "Sigla ou nome comercial", "label_en": "Acronym or trading name", "type": "text", "required": "N", "validation": "max 255 chars" },
+        { "id": "A.03", "var": "qA_03", "name": "respondent_name", "label_pt": "Nome do respondente", "label_en": "Respondent name", "type": "text", "required": "Y", "validation": "max 255 chars" },
+        { "id": "A.04", "var": "qA_04", "name": "respondent_position", "label_pt": "Cargo / função do respondente", "label_en": "Respondent position / role", "type": "text", "required": "C", "relevance": "q0_13 != 1", "validation": "max 255 chars" },
+        { "id": "A.05", "var": "qA_05", "name": "respondent_sex", "label_pt": "Sexo do respondente", "label_en": "Respondent sex", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Masculino" }, { "code": 2, "label_pt": "Feminino" } ] },
+        { "id": "A.06", "var": "qA_06", "name": "respondent_age", "label_pt": "Idade do respondente", "label_en": "Respondent age (years)", "type": "integer", "required": "Y", "unit": "anos", "constraint": "qA_06 >= 15 AND qA_06 <= 110", "constraint_message_pt": "A idade deve estar entre 15 e 110 anos.", "validation": "integer >= 0, max 3 digits; 15–110" },
+        { "id": "A.07", "var": "qA_07", "name": "respondent_education", "label_pt": "Nível de escolaridade do respondente", "label_en": "Respondent education level", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Nenhum" }, { "code": 2, "label_pt": "Primário" }, { "code": 3, "label_pt": "Secundário" }, { "code": 4, "label_pt": "Técnico-profissional" }, { "code": 5, "label_pt": "Superior" } ] },
+        { "id": "A.08", "var": "qA_08", "name": "legal_rep_name", "label_pt": "Nome do responsável / representante legal (se diferente do respondente)", "label_en": "Name of legal representative / person in charge (if different)", "type": "text", "required": "N", "validation": "max 255 chars", "contact": true },
+        { "id": "A.09", "var": "qA_09", "name": "phone_main", "label_pt": "Telefone principal", "label_en": "Main phone", "type": "phone", "required": "Y", "validation": "+258 + 9 digits, regex ^\\+2588[2-7]\\d{7}$", "contact": true },
+        { "id": "A.10", "var": "qA_10", "name": "phone_alt", "label_pt": "Telefone alternativo / WhatsApp", "label_en": "Alternative phone / WhatsApp", "type": "phone", "required": "N", "validation": "+258 + 9 digits, regex ^\\+2588[2-7]\\d{7}$", "contact": true },
+        { "id": "A.11", "var": "qA_11", "name": "email", "label_pt": "Endereço de correio electrónico", "label_en": "E-mail address", "type": "email", "required": "N", "validation": "RFC 5322 e-mail", "contact": true },
+        { "id": "A.12", "var": "qA_12", "name": "address", "label_pt": "Endereço físico (rua, nº, bairro, referência)", "label_en": "Physical address", "type": "text", "required": "Y", "validation": "max 255 chars", "contact": true },
+        { "id": "A.13", "var": "qA_13", "name": "website", "label_pt": "Website / redes sociais", "label_en": "Website / social media", "type": "text", "required": "N", "validation": "max 255 chars", "contact": true },
+        { "id": "A.14", "var": "qA_14", "name": "start_year", "label_pt": "Ano de início da actividade na Província de Maputo", "label_en": "Year activity started in Maputo Province", "type": "integer", "required": "Y", "unit": "ano", "constraint": "qA_14 >= 1900", "constraint_message_pt": "O ano deve ser igual ou posterior a 1900 e não superior ao ano actual.", "validation": "integer >= 0, max 4 digits; 1900 <= value <= current year" },
+        { "id": "A.15", "var": "qA_15", "name": "subsectors", "label_pt": "Subsectores em que actua", "label_en": "Subsectors of activity (drives Modules C–F)", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Agricultura" }, { "code": 2, "label_pt": "Pecuária" }, { "code": 3, "label_pt": "Pesca" }, { "code": 4, "label_pt": "Aquacultura" }, { "code": 5, "label_pt": "Agro-processamento" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "A.16", "var": "qA_16", "name": "value_chain_links", "label_pt": "Elos da cadeia de valor em que actua", "label_en": "Value chain links in which the actor operates", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Fornecimento de insumos" }, { "code": 2, "label_pt": "Produção" }, { "code": 3, "label_pt": "Transformação / processamento" }, { "code": 4, "label_pt": "Comercialização" }, { "code": 5, "label_pt": "Logística, transporte e armazenagem" }, { "code": 6, "label_pt": "Assistência técnica / extensão" }, { "code": 7, "label_pt": "Serviços financeiros" }, { "code": 8, "label_pt": "Investigação / formação" }, { "code": 9, "label_pt": "Regulação / gestão pública" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "A.17", "var": "qA_17", "name": "operation_level", "label_pt": "Nível de actuação mais elevado", "label_en": "Highest level of operation", "type": "select_one", "required": "Y", "list": "operation_level" },
+        { "id": "A.18", "var": "qA_18", "name": "districts_of_operation", "label_pt": "Distritos da Província de Maputo onde actua", "label_en": "Districts of Maputo Province where the actor operates", "type": "select_multiple", "required": "Y", "list": "districts" },
+        { "id": "A.19", "var": "qA_19", "name": "legal_status", "label_pt": "Situação legal", "label_en": "Legal status", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Formalmente registado / legalizado" }, { "code": 2, "label_pt": "Em processo de registo" }, { "code": 3, "label_pt": "Não registado (informal)" } ], "skip": "If = 3 → skip to A.22" },
+        { "id": "A.20", "var": "qA_20", "name": "registration_docs", "label_pt": "Documentos de registo e licenças que possui", "label_en": "Registration documents and licences held", "type": "select_multiple", "required": "C", "relevance": "qA_19 IN (1, 2)", "options": [ { "code": 1, "label_pt": "Alvará / licença de actividade" }, { "code": 2, "label_pt": "Certidão de registo de entidade legal" }, { "code": 3, "label_pt": "Estatutos publicados no Boletim da República" }, { "code": 4, "label_pt": "NUIT" }, { "code": 5, "label_pt": "Licença de pesca" }, { "code": 6, "label_pt": "Licença de aquacultura" }, { "code": 7, "label_pt": "DUAT" }, { "code": 8, "label_pt": "Cartão / registo de produtor" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "A.21", "var": "qA_21", "name": "nuit", "label_pt": "Número Único de Identificação Tributária (NUIT)", "label_en": "Tax identification number (NUIT)", "type": "integer", "required": "C", "relevance": "4 IN qA_20", "validation": "integer >= 0, max 9 digits; exactly 9 digits", "contact": true },
+        { "id": "A.23", "var": "qA_23", "name": "contact_sharing_consent", "label_pt": "Autoriza que os contactos (A.09–A.13) constem da base de dados partilhada com os parceiros da DPAP?", "label_en": "Authorises contacts (A.09–A.13) to be shared with DPAP partners", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] }
+      ],
+      "rosters": [
+        {
+          "id": "A.22", "var": "qA_22", "name": "workforce", "table": "roster_a_22_workforce",
+          "kind": "fixed",
+          "label_pt": "Pessoas que trabalham na actividade (incluindo membros do agregado)",
+          "label_en": "People working in the activity (incl. household members)",
+          "rows": [ { "code": 1, "label_pt": "Permanentes" }, { "code": 2, "label_pt": "Sazonais / temporários" }, { "code": 3, "label_pt": "Familiares não remunerados" } ],
+          "columns": [
+            { "col": "c0", "name": "category", "label_pt": "Categoria", "label_en": "Category", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "men", "label_pt": "Homens", "label_en": "Men", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "women", "label_pt": "Mulheres", "label_en": "Women", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "youth_15_35", "label_pt": "Jovens 15–35 (dos quais)", "label_en": "Of whom youth 15–35", "type": "number", "validation": "number >= 0; youth <= total" },
+            { "col": "c4", "name": "total", "label_pt": "Total", "label_en": "Total", "type": "number", "calc": "men + women", "readonly": true }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "B",
+      "order": 2,
+      "title_pt": "Produtor individual e agregado familiar",
+      "title_en": "Individual producer and household",
+      "applies_to": [1],
+      "relevance": "q0_12 = 1 AND q0_13 = 1",
+      "fields": [
+        { "id": "B.01", "var": "qB_01", "name": "household_size", "label_pt": "Número de membros do agregado familiar", "label_en": "Number of household members", "type": "integer", "required": "Y", "unit": "pessoas", "validation": "integer >= 0, max 2 digits" },
+        { "id": "B.03", "var": "qB_03", "name": "head_sex", "label_pt": "Sexo do chefe do agregado", "label_en": "Sex of household head", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Masculino" }, { "code": 2, "label_pt": "Feminino" } ] },
+        { "id": "B.04", "var": "qB_04", "name": "main_activity", "label_pt": "Actividade principal do produtor", "label_en": "Producer main activity", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Agricultura" }, { "code": 2, "label_pt": "Pecuária" }, { "code": 3, "label_pt": "Pesca" }, { "code": 4, "label_pt": "Aquacultura" }, { "code": 5, "label_pt": "Agro-processamento" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "B.05", "var": "qB_05", "name": "production_orientation", "label_pt": "Orientação da produção", "label_en": "Production orientation", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Subsistência" }, { "code": 2, "label_pt": "Mista (consumo e venda)" }, { "code": 3, "label_pt": "Comercial" } ] },
+        { "id": "B.06", "var": "qB_06", "name": "is_association_member", "label_pt": "É membro de alguma associação ou cooperativa?", "label_en": "Member of an association or cooperative?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ], "skip": "If = 2 → skip to B.08" },
+        { "id": "B.07", "var": "qB_07", "name": "association_name", "label_pt": "Nome da associação / cooperativa", "label_en": "Name of association / cooperative", "type": "text", "required": "C", "relevance": "qB_06 = 1", "validation": "max 255 chars" },
+        { "id": "B.08", "var": "qB_08", "name": "received_extension", "label_pt": "Recebeu assistência técnica / extensão nos últimos 12 meses?", "label_en": "Received technical assistance / extension in the last 12 months?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ], "skip": "If = 2 → skip to Module C" },
+        { "id": "B.09", "var": "qB_09", "name": "extension_sources", "label_pt": "Fonte da assistência técnica recebida", "label_en": "Source of technical assistance received", "type": "select_multiple", "required": "C", "relevance": "qB_08 = 1", "options": [ { "code": 1, "label_pt": "Extensão pública (SDAE)" }, { "code": 2, "label_pt": "ONG / projecto" }, { "code": 3, "label_pt": "Empresa (fomento)" }, { "code": 4, "label_pt": "Associação" }, { "code": 5, "label_pt": "Promotor / agente comunitário" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 }
+      ],
+      "rosters": [
+        {
+          "id": "B.02", "var": "qB_02", "name": "household_composition", "table": "roster_b_02_household_composition",
+          "kind": "fixed",
+          "label_pt": "Composição do agregado familiar por sexo e idade",
+          "label_en": "Household composition by sex and age group",
+          "rows": [ { "code": 1, "label_pt": "0–14 anos" }, { "code": 2, "label_pt": "15–35 anos" }, { "code": 3, "label_pt": "36–59 anos" }, { "code": 4, "label_pt": "60 anos ou mais" } ],
+          "columns": [
+            { "col": "c0", "name": "age_group", "label_pt": "Grupo etário", "label_en": "Age group", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "men", "label_pt": "Homens", "label_en": "Men", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "women", "label_pt": "Mulheres", "label_en": "Women", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "total", "label_pt": "Total", "label_en": "Total", "type": "number", "calc": "men + women", "readonly": true }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "C",
+      "order": 3,
+      "title_pt": "Produção agrícola",
+      "title_en": "Crop production",
+      "applies_to": [1, 2, 4],
+      "relevance": "q0_12 = 1 AND q0_13 IN (1, 2, 4) AND 1 IN qA_15",
+      "fields": [
+        { "id": "C.01", "var": "qC_01", "name": "plot_count", "label_pt": "Número de parcelas / machambas exploradas", "label_en": "Number of plots (machambas) farmed", "type": "integer", "required": "Y", "validation": "integer >= 0, max 2 digits" },
+        { "id": "C.02", "var": "qC_02", "name": "area_total_ha", "label_pt": "Área total disponível", "label_en": "Total area available (ha)", "type": "decimal", "required": "Y", "unit": "ha", "validation": "decimal >= 0, max 5 digits + 1 decimal" },
+        { "id": "C.03", "var": "qC_03", "name": "area_cultivated_ha", "label_pt": "Área cultivada na última campanha", "label_en": "Area cultivated last season (ha)", "type": "decimal", "required": "Y", "unit": "ha", "constraint": "qC_03 <= qC_02", "constraint_message_pt": "A área cultivada não pode exceder a área total disponível.", "validation": "decimal >= 0, max 5 digits + 1 decimal" },
+        { "id": "C.04", "var": "qC_04", "name": "land_access", "label_pt": "Forma de acesso à terra", "label_en": "Form of access to land", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "DUAT formal" }, { "code": 2, "label_pt": "Ocupação costumeira / boa-fé" }, { "code": 3, "label_pt": "Arrendamento" }, { "code": 4, "label_pt": "Cedência / empréstimo" }, { "code": 5, "label_pt": "Terra da associação" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "C.06", "var": "qC_06", "name": "water_sources", "label_pt": "Fontes de água para a produção", "label_en": "Water sources for production", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Chuva" }, { "code": 2, "label_pt": "Rio / riacho" }, { "code": 3, "label_pt": "Lagoa / albufeira" }, { "code": 4, "label_pt": "Furo / poço" }, { "code": 5, "label_pt": "Regadio público / comunitário" }, { "code": 6, "label_pt": "Barragem / represa" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "C.07", "var": "qC_07", "name": "irrigation_systems", "label_pt": "Sistema de rega utilizado", "label_en": "Irrigation system used", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Nenhum" }, { "code": 2, "label_pt": "Gravidade / sulcos" }, { "code": 3, "label_pt": "Aspersão" }, { "code": 4, "label_pt": "Gota-a-gota" }, { "code": 5, "label_pt": "Motobomba" }, { "code": 6, "label_pt": "Regador / manual" }, { "code": 7, "label_pt": "Bomba solar" } ], "exclusive_code": 1 },
+        { "id": "C.08", "var": "qC_08", "name": "inputs_used", "label_pt": "Insumos utilizados na última campanha", "label_en": "Inputs used last season", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Semente certificada" }, { "code": 2, "label_pt": "Semente melhorada guardada" }, { "code": 3, "label_pt": "Semente local" }, { "code": 4, "label_pt": "Fertilizante químico" }, { "code": 5, "label_pt": "Adubo orgânico / estrume" }, { "code": 6, "label_pt": "Pesticidas" }, { "code": 7, "label_pt": "Herbicidas" }, { "code": 8, "label_pt": "Nenhum" } ], "exclusive_code": 8 },
+        { "id": "C.09", "var": "qC_09", "name": "input_sources", "label_pt": "Fonte dos insumos", "label_en": "Source of inputs", "type": "select_multiple", "required": "C", "relevance": "NOT (8 IN qC_08)", "options": [ { "code": 1, "label_pt": "Agro-dealer / loja" }, { "code": 2, "label_pt": "Empresa (fomento)" }, { "code": 3, "label_pt": "ONG / projecto" }, { "code": 4, "label_pt": "Governo (SDAE / programas)" }, { "code": 5, "label_pt": "Produção própria" }, { "code": 6, "label_pt": "Mercado informal" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "C.10", "var": "qC_10", "name": "postharvest_loss_pct", "label_pt": "Perdas pós-colheita estimadas", "label_en": "Estimated post-harvest losses (% of production)", "type": "integer", "required": "Y", "unit": "% da produção", "constraint": "qC_10 >= 0 AND qC_10 <= 100", "constraint_message_pt": "A percentagem deve estar entre 0 e 100.", "validation": "integer >= 0, max 3 digits; 0–100" },
+        { "id": "C.11", "var": "qC_11", "name": "crop_constraints", "label_pt": "Principais constrangimentos à produção agrícola (até 3)", "label_en": "Main constraints to crop production (max. 3)", "type": "select_multiple", "required": "Y", "max_select": 3, "options": [ { "code": 1, "label_pt": "Seca / irregularidade das chuvas" }, { "code": 2, "label_pt": "Cheias" }, { "code": 3, "label_pt": "Pragas e doenças" }, { "code": 4, "label_pt": "Falta / custo de insumos" }, { "code": 5, "label_pt": "Falta de crédito" }, { "code": 6, "label_pt": "Falta de mercado / preços baixos" }, { "code": 7, "label_pt": "Falta de mão-de-obra" }, { "code": 8, "label_pt": "Conflitos de terra" }, { "code": 9, "label_pt": "Falta de equipamento" }, { "code": 10, "label_pt": "Conflito homem–fauna bravia" }, { "code": 11, "label_pt": "Roubos" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 }
+      ],
+      "rosters": [
+        {
+          "id": "C.05", "var": "qC_05", "name": "crops", "table": "roster_c_05_crops",
+          "kind": "repeatable", "paper_rows": 8,
+          "label_pt": "Culturas praticadas na última campanha (usar códigos do Anexo 2)",
+          "label_en": "Crops grown last season",
+          "columns": [
+            { "col": "c0", "name": "crop_code", "label_pt": "Cód. cultura", "label_en": "Crop code", "type": "select_one", "list": "crops" },
+            { "col": "c1", "name": "area_ha", "label_pt": "Área (ha)", "label_en": "Area (ha)", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "season", "label_pt": "Época", "label_en": "Season", "type": "select_one", "options": [ { "code": 1, "label_pt": "1ª época" }, { "code": 2, "label_pt": "2ª época" }, { "code": 3, "label_pt": "ambas" } ] },
+            { "col": "c3", "name": "system", "label_pt": "Sistema", "label_en": "System (rainfed/irrigated)", "type": "select_one", "options": [ { "code": 1, "label_pt": "sequeiro" }, { "code": 2, "label_pt": "regadio" }, { "code": 3, "label_pt": "misto" } ] },
+            { "col": "c4", "name": "production_kg", "label_pt": "Produção (kg)", "label_en": "Production (kg)", "type": "number", "validation": "number >= 0" },
+            { "col": "c5", "name": "sold_kg", "label_pt": "Vendido (kg)", "label_en": "Sold (kg)", "type": "number", "constraint": "sold_kg <= production_kg", "constraint_message_pt": "A quantidade vendida não pode exceder a produção.", "validation": "number >= 0" },
+            { "col": "c6", "name": "avg_price_mt_kg", "label_pt": "Preço médio (MT/kg)", "label_en": "Average price (MZN/kg)", "type": "number", "validation": "number >= 0" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "D",
+      "order": 4,
+      "title_pt": "Produção pecuária e sanidade animal",
+      "title_en": "Livestock production and animal health",
+      "applies_to": [1, 2, 4],
+      "relevance": "q0_12 = 1 AND q0_13 IN (1, 2, 4) AND 2 IN qA_15",
+      "fields": [
+        { "id": "D.02", "var": "qD_02", "name": "livestock_purpose", "label_pt": "Finalidade principal da criação", "label_en": "Main purpose of livestock keeping", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Carne" }, { "code": 2, "label_pt": "Leite" }, { "code": 3, "label_pt": "Ovos" }, { "code": 4, "label_pt": "Tracção animal" }, { "code": 5, "label_pt": "Reprodução / venda de animais" }, { "code": 6, "label_pt": "Poupança / reserva" }, { "code": 7, "label_pt": "Usos culturais" } ] },
+        { "id": "D.04", "var": "qD_04", "name": "pasture_access", "label_pt": "Tipo de acesso a pastagens", "label_en": "Type of access to pasture", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Pastagem própria" }, { "code": 2, "label_pt": "Pastagem comunitária" }, { "code": 3, "label_pt": "Pastagem arrendada" }, { "code": 4, "label_pt": "Sem acesso (estabulação)" } ] },
+        { "id": "D.05", "var": "qD_05", "name": "pasture_dry_season", "label_pt": "Suficiência das pastagens na época seca", "label_en": "Pasture sufficiency in dry season", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Suficiente" }, { "code": 2, "label_pt": "Insuficiente" }, { "code": 3, "label_pt": "Inexistente" } ] },
+        { "id": "D.06", "var": "qD_06", "name": "livestock_water_sources", "label_pt": "Fontes de água para os animais", "label_en": "Water sources for animals", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Rio / riacho" }, { "code": 2, "label_pt": "Lagoa / represa" }, { "code": 3, "label_pt": "Furo / poço" }, { "code": 4, "label_pt": "Bebedouro / sistema canalizado" }, { "code": 5, "label_pt": "Charco temporário" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "D.07", "var": "qD_07", "name": "water_distance_km", "label_pt": "Distância à fonte de água na época seca", "label_en": "Distance to water in dry season (km)", "type": "decimal", "required": "Y", "unit": "km", "validation": "decimal >= 0, max 3 digits + 1 decimal" },
+        { "id": "D.08", "var": "qD_08", "name": "water_availability", "label_pt": "Disponibilidade de água ao longo do ano", "label_en": "Water availability throughout the year", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Todo o ano" }, { "code": 2, "label_pt": "Sazonal" }, { "code": 3, "label_pt": "Escassa" } ] },
+        { "id": "D.10", "var": "qD_10", "name": "diseases", "label_pt": "Principais doenças registadas nos últimos 12 meses", "label_en": "Main diseases recorded in the last 12 months", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Febre aftosa" }, { "code": 2, "label_pt": "Dermatose nodular contagiosa" }, { "code": 3, "label_pt": "Teileriose / babesiose / anaplasmose" }, { "code": 4, "label_pt": "Tripanossomose" }, { "code": 5, "label_pt": "Carbúnculo" }, { "code": 6, "label_pt": "Raiva" }, { "code": 7, "label_pt": "Brucelose / tuberculose" }, { "code": 8, "label_pt": "Doença de Newcastle" }, { "code": 9, "label_pt": "Peste suína africana" }, { "code": 10, "label_pt": "Parasitoses gastrointestinais" }, { "code": 11, "label_pt": "Nenhuma" }, { "code": 96, "label_pt": "Outra" } ], "exclusive_code": 11, "other_code": 96 },
+        { "id": "D.11", "var": "qD_11", "name": "diseases_notified", "label_pt": "As doenças foram notificadas aos serviços públicos de veterinária?", "label_en": "Were diseases reported to public veterinary services?", "type": "select_one", "required": "C", "relevance": "NOT (11 IN qD_10)", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "D.12", "var": "qD_12", "name": "vet_linkage", "label_pt": "Grau de articulação com os serviços públicos de veterinária", "label_en": "Degree of linkage with public veterinary services", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Regular" }, { "code": 2, "label_pt": "Ocasional" }, { "code": 3, "label_pt": "Nenhuma" } ] },
+        { "id": "D.13", "var": "qD_13", "name": "livestock_constraints", "label_pt": "Principais constrangimentos à produção pecuária (até 3)", "label_en": "Main constraints to livestock production (max. 3)", "type": "select_multiple", "required": "Y", "max_select": 3, "options": [ { "code": 1, "label_pt": "Doenças" }, { "code": 2, "label_pt": "Falta de pastagem" }, { "code": 3, "label_pt": "Falta de água" }, { "code": 4, "label_pt": "Custo de medicamentos / vacinas" }, { "code": 5, "label_pt": "Falta de assistência veterinária" }, { "code": 6, "label_pt": "Roubo de gado" }, { "code": 7, "label_pt": "Falta de mercado" }, { "code": 8, "label_pt": "Custo da ração" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 }
+      ],
+      "rosters": [
+        {
+          "id": "D.01", "var": "qD_01", "name": "herd", "table": "roster_d_01_herd",
+          "kind": "fixed",
+          "label_pt": "Efectivo pecuário por espécie",
+          "label_en": "Livestock herd by species",
+          "rows": [ { "code": 1, "label_pt": "Bovinos" }, { "code": 2, "label_pt": "Caprinos" }, { "code": 3, "label_pt": "Ovinos" }, { "code": 4, "label_pt": "Suínos" }, { "code": 5, "label_pt": "Galinhas cafreal / landim" }, { "code": 6, "label_pt": "Frangos de corte" }, { "code": 7, "label_pt": "Galinhas poedeiras" }, { "code": 8, "label_pt": "Patos" }, { "code": 9, "label_pt": "Coelhos" }, { "code": 96, "label_pt": "Outra" } ],
+          "columns": [
+            { "col": "c0", "name": "species", "label_pt": "Espécie", "label_en": "Species", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "total_head", "label_pt": "Total cabeças", "label_en": "Total head", "type": "number", "validation": "number >= 0; males + females = total_head" },
+            { "col": "c2", "name": "males", "label_pt": "Machos", "label_en": "Males", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "females", "label_pt": "Fêmeas", "label_en": "Females", "type": "number", "validation": "number >= 0" },
+            { "col": "c4", "name": "young", "label_pt": "Crias / jovens", "label_en": "Young", "type": "number", "validation": "number >= 0; young <= total_head" },
+            { "col": "c5", "name": "births_12m", "label_pt": "Nasc. 12m", "label_en": "Births (12 m)", "type": "number", "validation": "number >= 0" },
+            { "col": "c6", "name": "deaths_12m", "label_pt": "Mortes 12m", "label_en": "Deaths (12 m)", "type": "number", "validation": "number >= 0" },
+            { "col": "c7", "name": "sales_12m", "label_pt": "Vendas 12m", "label_en": "Sales (12 m)", "type": "number", "validation": "number >= 0" },
+            { "col": "c8", "name": "production_system", "label_pt": "Sistema", "label_en": "Production system", "type": "select_one", "options": [ { "code": 1, "label_pt": "extensivo" }, { "code": 2, "label_pt": "semi-intensivo" }, { "code": 3, "label_pt": "intensivo" } ] }
+          ]
+        },
+        {
+          "id": "D.03", "var": "qD_03", "name": "livestock_infrastructure", "table": "roster_d_03_livestock_infrastructure",
+          "kind": "fixed",
+          "label_pt": "Infra-estruturas pecuárias acessíveis",
+          "label_en": "Accessible livestock infrastructure",
+          "rows": [ { "code": 1, "label_pt": "Curral / estábulo" }, { "code": 2, "label_pt": "Tanque carracicida" }, { "code": 3, "label_pt": "Ponto de abeberamento / bebedouro" }, { "code": 4, "label_pt": "Matadouro / matadoiro" }, { "code": 5, "label_pt": "Manga de maneio" }, { "code": 6, "label_pt": "Aviário / pocilga" }, { "code": 7, "label_pt": "Armazém de ração" }, { "code": 96, "label_pt": "Outra" } ],
+          "columns": [
+            { "col": "c0", "name": "infrastructure", "label_pt": "Infra-estrutura", "label_en": "Infrastructure", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "has_access", "label_pt": "Acesso", "label_en": "Has access (Y/N)", "type": "yes_no", "list": "yes_no" },
+            { "col": "c2", "name": "ownership", "label_pt": "Propriedade", "label_en": "Ownership", "type": "select_one", "options": [ { "code": 1, "label_pt": "próprio" }, { "code": 2, "label_pt": "comunitário / associação" }, { "code": 3, "label_pt": "público" }, { "code": 4, "label_pt": "privado de terceiros" } ] },
+            { "col": "c3", "name": "condition", "label_pt": "Estado", "label_en": "Condition", "type": "select_one", "options": [ { "code": 1, "label_pt": "bom" }, { "code": 2, "label_pt": "razoável" }, { "code": 3, "label_pt": "mau / inoperacional" } ] },
+            { "col": "c4", "name": "distance_km", "label_pt": "Distância (km)", "label_en": "Distance (km)", "type": "number", "validation": "number >= 0" }
+          ]
+        },
+        {
+          "id": "D.09", "var": "qD_09", "name": "animal_health_services", "table": "roster_d_09_animal_health_services",
+          "kind": "fixed",
+          "label_pt": "Serviços de sanidade animal utilizados nos últimos 12 meses",
+          "label_en": "Animal health services used in the last 12 months",
+          "rows": [ { "code": 1, "label_pt": "Vacinação" }, { "code": 2, "label_pt": "Desparasitação interna" }, { "code": 3, "label_pt": "Banho / pulverização carracicida" }, { "code": 4, "label_pt": "Assistência / tratamento veterinário" }, { "code": 5, "label_pt": "Inseminação artificial" } ],
+          "columns": [
+            { "col": "c0", "name": "service", "label_pt": "Serviço", "label_en": "Service", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "used", "label_pt": "Utilizou", "label_en": "Used (Y/N)", "type": "yes_no", "list": "yes_no" },
+            { "col": "c2", "name": "times_per_year", "label_pt": "Nº vezes / ano", "label_en": "Times per year", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "provider", "label_pt": "Prestador", "label_en": "Provider", "type": "select_one", "options": [ { "code": 1, "label_pt": "serviços públicos de veterinária (SDAE / SPP)" }, { "code": 2, "label_pt": "veterinário privado" }, { "code": 3, "label_pt": "paraveterinário / agente comunitário" }, { "code": 4, "label_pt": "ONG / projecto" }, { "code": 5, "label_pt": "o próprio criador" } ] },
+            { "col": "c4", "name": "avg_cost_mt", "label_pt": "Custo médio (MT)", "label_en": "Average cost (MZN)", "type": "number", "validation": "number >= 0" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "E",
+      "order": 5,
+      "title_pt": "Pesca",
+      "title_en": "Fisheries",
+      "applies_to": [1, 2, 4],
+      "relevance": "q0_12 = 1 AND q0_13 IN (1, 2, 4) AND 3 IN qA_15",
+      "fields": [
+        { "id": "E.01", "var": "qE_01", "name": "fishing_type", "label_pt": "Tipo de pesca praticada", "label_en": "Type of fishing", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Artesanal" }, { "code": 2, "label_pt": "Semi-industrial" }, { "code": 3, "label_pt": "Industrial" }, { "code": 4, "label_pt": "Desportiva / recreativa" } ] },
+        { "id": "E.02", "var": "qE_02", "name": "fishing_environment", "label_pt": "Meio de pesca", "label_en": "Fishing environment (marine / inland)", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Marítima" }, { "code": 2, "label_pt": "Águas interiores (rios, lagoas, albufeiras)" }, { "code": 3, "label_pt": "Ambas" } ] },
+        { "id": "E.03", "var": "qE_03", "name": "landing_site", "label_pt": "Centro de pesca / local de desembarque principal", "label_en": "Main fishing centre / landing site", "type": "text", "required": "Y", "validation": "max 255 chars" },
+        { "id": "E.04", "var": "qE_04", "name": "fishery_role", "label_pt": "Função na pescaria", "label_en": "Role in the fishery", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Proprietário de embarcação / arte" }, { "code": 2, "label_pt": "Pescador tripulante" }, { "code": 3, "label_pt": "Colector / apanhador (marisco)" }, { "code": 4, "label_pt": "Comerciante de pescado" }, { "code": 5, "label_pt": "Processador de pescado" } ] },
+        { "id": "E.06", "var": "qE_06", "name": "fishing_gear", "label_pt": "Artes de pesca utilizadas", "label_en": "Fishing gear used", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Rede de emalhar" }, { "code": 2, "label_pt": "Arrasto para a praia" }, { "code": 3, "label_pt": "Linha e anzol" }, { "code": 4, "label_pt": "Palangre" }, { "code": 5, "label_pt": "Gaiola / armadilha" }, { "code": 6, "label_pt": "Rede mosquiteira / chicocota" }, { "code": 7, "label_pt": "Mergulho" }, { "code": 8, "label_pt": "Apanha manual" }, { "code": 96, "label_pt": "Outra" } ], "other_code": 96 },
+        { "id": "E.07", "var": "qE_07", "name": "has_fishing_licence", "label_pt": "Possui licença de pesca válida?", "label_en": "Holds a valid fishing licence?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "E.08", "var": "qE_08", "name": "catch_species", "label_pt": "Principais espécies / grupos capturados", "label_en": "Main species / groups caught", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Peixe demersal" }, { "code": 2, "label_pt": "Peixe pelágico (carapau, magumba)" }, { "code": 3, "label_pt": "Camarão" }, { "code": 4, "label_pt": "Lagosta" }, { "code": 5, "label_pt": "Caranguejo" }, { "code": 6, "label_pt": "Lula / polvo" }, { "code": 7, "label_pt": "Bivalves (amêijoa, ostra)" }, { "code": 8, "label_pt": "Tilápia / peixe de água doce" }, { "code": 96, "label_pt": "Outra" } ], "other_code": 96 },
+        { "id": "E.09", "var": "qE_09", "name": "catch_per_trip_kg", "label_pt": "Captura média por saída de pesca", "label_en": "Average catch per trip (kg)", "type": "integer", "required": "Y", "unit": "kg", "validation": "integer >= 0, max 4 digits" },
+        { "id": "E.10", "var": "qE_10", "name": "fishing_days_month", "label_pt": "Dias de pesca por mês (época alta / época baixa)", "label_en": "Fishing days per month (high / low season)", "type": "integer", "required": "Y", "unit": "dias alta / dias baixa", "subfields": ["high_season", "low_season"], "validation": "integer >= 0, max 2 digits; store as two integer sub-fields" },
+        { "id": "E.11", "var": "qE_11", "name": "fish_preservation", "label_pt": "Métodos de conservação do pescado", "label_en": "Fish preservation methods", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Gelo" }, { "code": 2, "label_pt": "Câmara frigorífica" }, { "code": 3, "label_pt": "Salga" }, { "code": 4, "label_pt": "Secagem" }, { "code": 5, "label_pt": "Fumagem" }, { "code": 6, "label_pt": "Nenhum (venda em fresco)" } ], "exclusive_code": 6 },
+        { "id": "E.12", "var": "qE_12", "name": "ccp_member", "label_pt": "É membro de um Conselho Comunitário de Pesca (CCP)?", "label_en": "Member of a Community Fisheries Council (CCP)?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "E.13", "var": "qE_13", "name": "fishing_constraints", "label_pt": "Principais constrangimentos à pesca (até 3)", "label_en": "Main constraints to fishing (max. 3)", "type": "select_multiple", "required": "Y", "max_select": 3, "options": [ { "code": 1, "label_pt": "Redução das capturas" }, { "code": 2, "label_pt": "Falta / custo de artes de pesca" }, { "code": 3, "label_pt": "Falta de embarcações motorizadas" }, { "code": 4, "label_pt": "Falta de gelo / frio" }, { "code": 5, "label_pt": "Falta de mercado / preços baixos" }, { "code": 6, "label_pt": "Pesca ilegal" }, { "code": 7, "label_pt": "Condições climáticas" }, { "code": 8, "label_pt": "Licenciamento" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 }
+      ],
+      "rosters": [
+        {
+          "id": "E.05", "var": "qE_05", "name": "vessels", "table": "roster_e_05_vessels",
+          "kind": "fixed",
+          "label_pt": "Embarcações e meios de pesca",
+          "label_en": "Vessels and fishing means",
+          "rows": [ { "code": 1, "label_pt": "Canoa / almadia" }, { "code": 2, "label_pt": "Barco a remo" }, { "code": 3, "label_pt": "Barco à vela" }, { "code": 4, "label_pt": "Barco motorizado" }, { "code": 5, "label_pt": "Sem embarcação (pesca a pé)" } ],
+          "columns": [
+            { "col": "c0", "name": "vessel_type", "label_pt": "Tipo de embarcação", "label_en": "Vessel type", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "count", "label_pt": "Nº", "label_en": "Number", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "length_m", "label_pt": "Comprimento (m)", "label_en": "Length (m)", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "motorised", "label_pt": "Motor", "label_en": "Motorised (Y/N)", "type": "yes_no", "list": "yes_no" },
+            { "col": "c4", "name": "power_hp", "label_pt": "Potência (HP)", "label_en": "Power (HP)", "type": "number", "validation": "number >= 0" },
+            { "col": "c5", "name": "licensed", "label_pt": "Licenciada", "label_en": "Licensed (Y/N)", "type": "yes_no", "list": "yes_no" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "F",
+      "order": 6,
+      "title_pt": "Aquacultura",
+      "title_en": "Aquaculture",
+      "applies_to": [1, 2, 4],
+      "relevance": "q0_12 = 1 AND q0_13 IN (1, 2, 4) AND 4 IN qA_15",
+      "fields": [
+        { "id": "F.01", "var": "qF_01", "name": "aquaculture_type", "label_pt": "Tipo de aquacultura", "label_en": "Type of aquaculture", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Água doce" }, { "code": 2, "label_pt": "Marinha / salobra" }, { "code": 3, "label_pt": "Ambas" } ] },
+        { "id": "F.03", "var": "qF_03", "name": "farmed_species", "label_pt": "Espécies cultivadas", "label_en": "Species farmed", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Tilápia" }, { "code": 2, "label_pt": "Bagre / peixe-gato" }, { "code": 3, "label_pt": "Carpa" }, { "code": 4, "label_pt": "Camarão" }, { "code": 5, "label_pt": "Ostra / mexilhão" }, { "code": 6, "label_pt": "Algas" }, { "code": 96, "label_pt": "Outra" } ], "other_code": 96 },
+        { "id": "F.04", "var": "qF_04", "name": "fingerling_source", "label_pt": "Origem dos alevinos / juvenis", "label_en": "Source of fingerlings / juveniles", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Centro público de alevinagem" }, { "code": 2, "label_pt": "Produtor privado" }, { "code": 3, "label_pt": "Produção própria" }, { "code": 4, "label_pt": "Importação" }, { "code": 5, "label_pt": "Captura no meio natural" } ] },
+        { "id": "F.05", "var": "qF_05", "name": "feed_type", "label_pt": "Tipo de alimentação utilizada", "label_en": "Type of feed used", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Ração comercial" }, { "code": 2, "label_pt": "Ração artesanal / local" }, { "code": 3, "label_pt": "Alimento natural / adubação" }, { "code": 4, "label_pt": "Mista" } ] },
+        { "id": "F.06", "var": "qF_06", "name": "last_cycle_production_kg", "label_pt": "Produção obtida no último ciclo", "label_en": "Production in last cycle (kg)", "type": "integer", "required": "Y", "unit": "kg", "validation": "integer >= 0, max 6 digits" },
+        { "id": "F.07", "var": "qF_07", "name": "cycles_per_year", "label_pt": "Número de ciclos de produção por ano", "label_en": "Production cycles per year", "type": "integer", "required": "Y", "validation": "integer >= 0, max 1 digit" },
+        { "id": "F.08", "var": "qF_08", "name": "aquaculture_water_source", "label_pt": "Fonte de água", "label_en": "Water source", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Rio" }, { "code": 2, "label_pt": "Lagoa / albufeira" }, { "code": 3, "label_pt": "Furo / poço" }, { "code": 4, "label_pt": "Mar / estuário" }, { "code": 5, "label_pt": "Canal de rega" } ] },
+        { "id": "F.09", "var": "qF_09", "name": "has_aquaculture_licence", "label_pt": "Possui licença de aquacultura?", "label_en": "Holds an aquaculture licence?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "F.10", "var": "qF_10", "name": "public_aquaculture_assistance", "label_pt": "Recebe assistência técnica dos serviços públicos de pesca e aquacultura?", "label_en": "Receives technical assistance from public fisheries/aquaculture services?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Regularmente" }, { "code": 2, "label_pt": "Ocasionalmente" }, { "code": 3, "label_pt": "Nunca" } ] },
+        { "id": "F.11", "var": "qF_11", "name": "aquaculture_constraints", "label_pt": "Principais constrangimentos à aquacultura (até 3)", "label_en": "Main constraints to aquaculture (max. 3)", "type": "select_multiple", "required": "Y", "max_select": 3, "options": [ { "code": 1, "label_pt": "Custo / falta de ração" }, { "code": 2, "label_pt": "Falta de alevinos de qualidade" }, { "code": 3, "label_pt": "Doenças" }, { "code": 4, "label_pt": "Falta de água" }, { "code": 5, "label_pt": "Falta de assistência técnica" }, { "code": 6, "label_pt": "Falta de mercado" }, { "code": 7, "label_pt": "Roubos / predadores" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 }
+      ],
+      "rosters": [
+        {
+          "id": "F.02", "var": "qF_02", "name": "aquaculture_infrastructure", "table": "roster_f_02_aquaculture_infrastructure",
+          "kind": "fixed",
+          "label_pt": "Infra-estruturas de produção",
+          "label_en": "Production infrastructure",
+          "rows": [ { "code": 1, "label_pt": "Tanque de terra" }, { "code": 2, "label_pt": "Tanque de cimento / lona" }, { "code": 3, "label_pt": "Gaiola flutuante" }, { "code": 4, "label_pt": "Jangada / long-line" }, { "code": 96, "label_pt": "Outra" } ],
+          "columns": [
+            { "col": "c0", "name": "type", "label_pt": "Tipo", "label_en": "Type", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "total", "label_pt": "Nº total", "label_en": "Total number", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "in_use", "label_pt": "Nº em uso", "label_en": "Number in use", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "size", "label_pt": "Área / volume total", "label_en": "Total area / volume", "type": "number", "validation": "number >= 0" },
+            { "col": "c4", "name": "unit", "label_pt": "Unidade (m² / m³)", "label_en": "Unit (m² / m³)", "type": "select_one", "options": [ { "code": 1, "label_pt": "m²" }, { "code": 2, "label_pt": "m³" } ] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "G",
+      "order": 7,
+      "title_pt": "Tecnologias utilizadas na produção",
+      "title_en": "Technologies used in production",
+      "applies_to": [1, 2, 3, 4, 5],
+      "relevance": "q0_12 = 1",
+      "fields": [
+        { "id": "G.02", "var": "qG_02", "name": "adoption_barriers", "label_pt": "Principais barreiras à adopção de tecnologias", "label_en": "Main barriers to technology adoption", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Custo elevado" }, { "code": 2, "label_pt": "Falta de conhecimento / formação" }, { "code": 3, "label_pt": "Indisponibilidade local" }, { "code": 4, "label_pt": "Falta de crédito" }, { "code": 5, "label_pt": "Falta de assistência técnica" }, { "code": 6, "label_pt": "Falta de energia / água" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "G.03", "var": "qG_03", "name": "desired_technologies", "label_pt": "Tecnologias que gostaria de adoptar nos próximos 3 anos", "label_en": "Technologies the actor would like to adopt in the next 3 years", "type": "text", "required": "N", "validation": "max 255 chars" }
+      ],
+      "rosters": [
+        {
+          "id": "G.01", "var": "qG_01", "name": "technologies", "table": "roster_g_01_technologies",
+          "kind": "fixed",
+          "label_pt": "Tecnologias utilizadas (ou promovidas, no caso de organizações e instituições)",
+          "label_en": "Technologies used (or promoted)",
+          "rows": [ { "code": 1, "label_pt": "Mecanização (tractor / motocultivador)" }, { "code": 2, "label_pt": "Tracção animal" }, { "code": 3, "label_pt": "Semente melhorada / certificada" }, { "code": 4, "label_pt": "Fertilização química / orgânica" }, { "code": 5, "label_pt": "Rega gota-a-gota / aspersão" }, { "code": 6, "label_pt": "Estufa / rede de sombra" }, { "code": 7, "label_pt": "Agricultura de conservação" }, { "code": 8, "label_pt": "Maneio integrado de pragas (MIP)" }, { "code": 9, "label_pt": "Raças melhoradas" }, { "code": 10, "label_pt": "Inseminação artificial" }, { "code": 11, "label_pt": "Ração balanceada" }, { "code": 12, "label_pt": "Motor fora-de-borda / sonda / GPS" }, { "code": 13, "label_pt": "Cadeia de frio" }, { "code": 14, "label_pt": "Equipamento de processamento" }, { "code": 15, "label_pt": "Energia solar" }, { "code": 16, "label_pt": "Telemóvel / aplicações (preços, clima)" }, { "code": 17, "label_pt": "Carteira móvel / pagamentos digitais" } ],
+          "columns": [
+            { "col": "c0", "name": "technology", "label_pt": "Tecnologia", "label_en": "Technology", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "uses", "label_pt": "Utiliza / promove", "label_en": "Uses / promotes (Y/N)", "type": "yes_no", "list": "yes_no" },
+            { "col": "c2", "name": "source", "label_pt": "Fonte / fornecedor", "label_en": "Source / supplier", "type": "select_one", "options": [ { "code": 1, "label_pt": "compra própria" }, { "code": 2, "label_pt": "governo" }, { "code": 3, "label_pt": "ONG / projecto" }, { "code": 4, "label_pt": "empresa" }, { "code": 5, "label_pt": "associação" }, { "code": 6, "label_pt": "outro" } ] },
+            { "col": "c3", "name": "year_adopted", "label_pt": "Ano de adopção", "label_en": "Year adopted", "type": "number", "validation": "number >= 0" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "H",
+      "order": 8,
+      "title_pt": "Comercialização",
+      "title_en": "Marketing and sales",
+      "applies_to": [1, 2, 4],
+      "relevance": "q0_12 = 1 AND q0_13 IN (1, 2, 4)",
+      "fields": [
+        { "id": "H.01", "var": "qH_01", "name": "sold_last_12m", "label_pt": "Vendeu produtos nos últimos 12 meses?", "label_en": "Sold products in the last 12 months?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ], "skip": "If = 2 → skip to Module I" },
+        { "id": "H.02", "var": "qH_02", "name": "pct_sold", "label_pt": "Percentagem da produção vendida", "label_en": "Percentage of production sold", "type": "integer", "required": "Y", "relevance": "qH_01 = 1", "unit": "%", "constraint": "qH_02 >= 0 AND qH_02 <= 100", "constraint_message_pt": "A percentagem deve estar entre 0 e 100.", "validation": "integer >= 0, max 3 digits; 0–100. BR-CN-7: H.01 = 1 requires H.02 > 0" },
+        { "id": "H.03", "var": "qH_03", "name": "sales_channels", "label_pt": "Canais de venda", "label_en": "Sales channels", "type": "select_multiple", "required": "Y", "relevance": "qH_01 = 1", "options": [ { "code": 1, "label_pt": "Na exploração / porta" }, { "code": 2, "label_pt": "Mercado local" }, { "code": 3, "label_pt": "Mercado grossista" }, { "code": 4, "label_pt": "Intermediários" }, { "code": 5, "label_pt": "Agro-indústria / empresa" }, { "code": 6, "label_pt": "Supermercados, hotéis, restaurantes" }, { "code": 7, "label_pt": "Instituições (escolas, hospitais)" }, { "code": 8, "label_pt": "Exportação" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "H.04", "var": "qH_04", "name": "sales_destinations", "label_pt": "Destino geográfico das vendas", "label_en": "Geographic destination of sales", "type": "select_multiple", "required": "Y", "relevance": "qH_01 = 1", "options": [ { "code": 1, "label_pt": "Mesma localidade" }, { "code": 2, "label_pt": "Mesmo distrito" }, { "code": 3, "label_pt": "Cidade de Maputo" }, { "code": 4, "label_pt": "Exportação" }, { "code": 96, "label_pt": "Outros distritos da província / outras províncias" } ], "other_code": 96 },
+        { "id": "H.05", "var": "qH_05", "name": "has_purchase_contract", "label_pt": "Tem contrato ou acordo de compra com algum comprador?", "label_en": "Has a contract / purchase agreement with a buyer?", "type": "select_one", "required": "Y", "relevance": "qH_01 = 1", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "H.06", "var": "qH_06", "name": "price_info_sources", "label_pt": "Fontes de informação sobre preços", "label_en": "Sources of price information", "type": "select_multiple", "required": "Y", "relevance": "qH_01 = 1", "options": [ { "code": 1, "label_pt": "Intermediários" }, { "code": 2, "label_pt": "Rádio / TV" }, { "code": 3, "label_pt": "Telemóvel / SMS / aplicações" }, { "code": 4, "label_pt": "Extensionista" }, { "code": 5, "label_pt": "Associação" }, { "code": 6, "label_pt": "Nenhuma" }, { "code": 96, "label_pt": "Outros produtores" } ], "exclusive_code": 6, "other_code": 96 },
+        { "id": "H.07", "var": "qH_07", "name": "main_transport", "label_pt": "Principal meio de transporte dos produtos", "label_en": "Main means of transporting products", "type": "select_one", "required": "Y", "relevance": "qH_01 = 1", "options": [ { "code": 1, "label_pt": "A pé / cabeça" }, { "code": 2, "label_pt": "Bicicleta / motorizada" }, { "code": 3, "label_pt": "Carroça" }, { "code": 4, "label_pt": "Viatura própria" }, { "code": 5, "label_pt": "Transporte alugado / chapa" }, { "code": 6, "label_pt": "Comprador recolhe" } ] },
+        { "id": "H.08", "var": "qH_08", "name": "marketing_constraints", "label_pt": "Principais constrangimentos de comercialização (até 3)", "label_en": "Main marketing constraints (max. 3)", "type": "select_multiple", "required": "Y", "relevance": "qH_01 = 1", "max_select": 3, "options": [ { "code": 1, "label_pt": "Preços baixos" }, { "code": 2, "label_pt": "Falta de compradores" }, { "code": 3, "label_pt": "Vias de acesso em mau estado" }, { "code": 4, "label_pt": "Custo de transporte" }, { "code": 5, "label_pt": "Falta de armazenagem / frio" }, { "code": 6, "label_pt": "Exigências de qualidade" }, { "code": 7, "label_pt": "Atrasos nos pagamentos" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 }
+      ],
+      "rosters": []
+    },
+
+    {
+      "key": "I",
+      "order": 9,
+      "title_pt": "Financiamento",
+      "title_en": "Financing",
+      "applies_to": [1, 2, 3, 4],
+      "relevance": "q0_12 = 1 AND q0_13 IN (1, 2, 3, 4)",
+      "fields": [
+        { "id": "I.01", "var": "qI_01", "name": "funding_sources", "label_pt": "Fontes de financiamento da actividade nos últimos 12 meses", "label_en": "Sources of financing in the last 12 months", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Recursos próprios" }, { "code": 2, "label_pt": "Grupos de poupança e crédito / xitique" }, { "code": 3, "label_pt": "Banco comercial" }, { "code": 4, "label_pt": "Instituição de microfinanças" }, { "code": 5, "label_pt": "Fundos públicos de desenvolvimento" }, { "code": 6, "label_pt": "Projectos / ONG / doadores" }, { "code": 7, "label_pt": "Empresa compradora (fomento)" }, { "code": 8, "label_pt": "Familiares / remessas" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "I.02", "var": "qI_02", "name": "applied_credit", "label_pt": "Solicitou crédito nos últimos 12 meses?", "label_en": "Applied for credit in the last 12 months?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ], "skip": "If = 2 → skip to I.06" },
+        { "id": "I.03", "var": "qI_03", "name": "obtained_credit", "label_pt": "Obteve o crédito solicitado?", "label_en": "Obtained the credit applied for?", "type": "select_one", "required": "C", "relevance": "qI_02 = 1", "options": [ { "code": 1, "label_pt": "Sim, totalmente" }, { "code": 2, "label_pt": "Sim, parcialmente" }, { "code": 3, "label_pt": "Não" } ] },
+        { "id": "I.04", "var": "qI_04", "name": "credit_amount_mt", "label_pt": "Montante obtido", "label_en": "Amount obtained (MZN)", "type": "integer", "required": "C", "relevance": "qI_03 IN (1, 2)", "unit": "MT", "validation": "integer >= 0, max 9 digits" },
+        { "id": "I.05", "var": "qI_05", "name": "credit_purpose", "label_pt": "Finalidade do crédito", "label_en": "Purpose of credit", "type": "select_multiple", "required": "C", "relevance": "qI_03 IN (1, 2)", "options": [ { "code": 1, "label_pt": "Insumos" }, { "code": 2, "label_pt": "Equipamento" }, { "code": 3, "label_pt": "Animais" }, { "code": 4, "label_pt": "Infra-estruturas" }, { "code": 5, "label_pt": "Comercialização" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "I.06", "var": "qI_06", "name": "no_credit_reasons", "label_pt": "Razões para não aceder a crédito", "label_en": "Reasons for not accessing credit", "type": "select_multiple", "required": "C", "relevance": "qI_02 = 2 OR qI_03 = 3", "options": [ { "code": 1, "label_pt": "Não precisou" }, { "code": 2, "label_pt": "Falta de garantias" }, { "code": 3, "label_pt": "Juros elevados" }, { "code": 4, "label_pt": "Desconhece os procedimentos" }, { "code": 5, "label_pt": "Instituição distante" }, { "code": 6, "label_pt": "Medo de endividamento" }, { "code": 7, "label_pt": "Pedido recusado" } ] },
+        { "id": "I.07", "var": "qI_07", "name": "accounts", "label_pt": "Possui conta bancária ou carteira móvel?", "label_en": "Holds a bank account or mobile wallet?", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Conta bancária" }, { "code": 2, "label_pt": "Carteira móvel" }, { "code": 3, "label_pt": "Nenhuma" } ], "exclusive_code": 3 },
+        { "id": "I.08", "var": "qI_08", "name": "has_insurance", "label_pt": "Possui seguro agrário / pecuário / de pesca?", "label_en": "Holds agricultural / livestock / fishing insurance?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] }
+      ],
+      "rosters": []
+    },
+
+    {
+      "key": "J",
+      "order": 10,
+      "title_pt": "Associações, cooperativas e grupos de produtores",
+      "title_en": "Associations, cooperatives and producer groups",
+      "applies_to": [2],
+      "relevance": "q0_12 = 1 AND q0_13 = 2",
+      "fields": [
+        { "id": "J.01", "var": "qJ_01", "name": "producer_org_type", "label_pt": "Tipo de organização de produtores", "label_en": "Type of producer organisation", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Associação de produtores" }, { "code": 2, "label_pt": "Cooperativa" }, { "code": 3, "label_pt": "Grupo informal" }, { "code": 4, "label_pt": "União / fórum de associações" }, { "code": 5, "label_pt": "Conselho Comunitário de Pesca" }, { "code": 6, "label_pt": "Comité de gestão (regadio, tanque, etc.)" } ] },
+        { "id": "J.02", "var": "qJ_02", "name": "founding_year", "label_pt": "Ano de constituição", "label_en": "Year founded", "type": "integer", "required": "Y", "unit": "ano", "constraint": "qJ_02 >= 1900", "constraint_message_pt": "O ano deve ser igual ou posterior a 1900 e não superior ao ano actual.", "validation": "integer >= 0, max 4 digits; 1900 <= value <= current year" },
+        { "id": "J.03", "var": "qJ_03", "name": "has_legal_personality", "label_pt": "Tem personalidade jurídica?", "label_en": "Has legal personality?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "J.04", "var": "qJ_04", "name": "has_statutes", "label_pt": "Tem estatutos aprovados?", "label_en": "Has approved statutes?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ], "skip": "If = 2 → skip to J.06" },
+        { "id": "J.05", "var": "qJ_05", "name": "statutes_published", "label_pt": "Os estatutos estão publicados no Boletim da República?", "label_en": "Statutes published in the Boletim da República?", "type": "select_one", "required": "C", "relevance": "qJ_04 = 1", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "J.07", "var": "qJ_07", "name": "association_activities", "label_pt": "Actividades desenvolvidas pela associação", "label_en": "Activities carried out by the association", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Produção colectiva" }, { "code": 2, "label_pt": "Compra conjunta de insumos" }, { "code": 3, "label_pt": "Comercialização conjunta" }, { "code": 4, "label_pt": "Gestão de regadio / infra-estrutura" }, { "code": 5, "label_pt": "Processamento" }, { "code": 6, "label_pt": "Poupança e crédito" }, { "code": 7, "label_pt": "Formação dos membros" }, { "code": 8, "label_pt": "Gestão de recursos naturais" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "J.10", "var": "qJ_10", "name": "membership_fee_mt", "label_pt": "Valor da quota", "label_en": "Membership fee (MZN / month)", "type": "integer", "required": "Y", "unit": "MT / mês", "validation": "integer >= 0, max 5 digits" },
+        { "id": "J.11", "var": "qJ_11", "name": "pct_fees_paid", "label_pt": "Percentagem de membros com quotas em dia", "label_en": "Percentage of members with fees up to date", "type": "integer", "required": "Y", "unit": "%", "constraint": "qJ_11 >= 0 AND qJ_11 <= 100", "constraint_message_pt": "A percentagem deve estar entre 0 e 100.", "validation": "integer >= 0, max 3 digits; 0–100" },
+        { "id": "J.12", "var": "qJ_12", "name": "association_assets", "label_pt": "Bens / património da associação", "label_en": "Association assets", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Armazém" }, { "code": 2, "label_pt": "Tractor / alfaias" }, { "code": 3, "label_pt": "Sistema de rega" }, { "code": 4, "label_pt": "Viatura" }, { "code": 5, "label_pt": "Escritório / sede" }, { "code": 6, "label_pt": "Equipamento de processamento" }, { "code": 7, "label_pt": "Embarcações / artes de pesca" }, { "code": 8, "label_pt": "Nenhum" }, { "code": 96, "label_pt": "Outro" } ], "exclusive_code": 8, "other_code": 96 },
+        { "id": "J.14", "var": "qJ_14", "name": "association_challenges", "label_pt": "Desafios / limitações no funcionamento da associação", "label_en": "Challenges / limitations in the association's functioning", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Fraca participação dos membros" }, { "code": 2, "label_pt": "Falta de fundos" }, { "code": 3, "label_pt": "Conflitos internos" }, { "code": 4, "label_pt": "Fraca liderança / gestão" }, { "code": 5, "label_pt": "Falta de formação" }, { "code": 6, "label_pt": "Dificuldades de legalização" }, { "code": 7, "label_pt": "Acesso a mercado" }, { "code": 8, "label_pt": "Acesso a crédito" }, { "code": 9, "label_pt": "Falta de transparência" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "J.15", "var": "qJ_15", "name": "association_needs", "label_pt": "Necessidades prioritárias da associação", "label_en": "Priority needs of the association", "type": "text", "required": "Y", "validation": "max 255 chars" }
+      ],
+      "rosters": [
+        {
+          "id": "J.06", "var": "qJ_06", "name": "membership", "table": "roster_j_06_membership",
+          "kind": "fixed",
+          "label_pt": "Composição dos membros por sexo e idade",
+          "label_en": "Membership by sex and age group",
+          "rows": [ { "code": 1, "label_pt": "Jovens (18–35 anos)" }, { "code": 2, "label_pt": "Adultos (36–59 anos)" }, { "code": 3, "label_pt": "60 anos ou mais" }, { "code": 4, "label_pt": "TOTAL" } ],
+          "columns": [
+            { "col": "c0", "name": "age_group", "label_pt": "Grupo etário", "label_en": "Age group", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "men", "label_pt": "Homens", "label_en": "Men", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "women", "label_pt": "Mulheres", "label_en": "Women", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "total", "label_pt": "Total", "label_en": "Total", "type": "number", "calc": "men + women", "readonly": true },
+            { "col": "c4", "name": "active", "label_pt": "Dos quais activos", "label_en": "Of whom active", "type": "number", "validation": "number >= 0; active <= total" }
+          ]
+        },
+        {
+          "id": "J.08", "var": "qJ_08", "name": "governance_bodies", "table": "roster_j_08_governance_bodies",
+          "kind": "fixed",
+          "label_pt": "Estrutura da associação (órgãos sociais)",
+          "label_en": "Association structure (governing bodies)",
+          "rows": [ { "code": 1, "label_pt": "Assembleia Geral" }, { "code": 2, "label_pt": "Direcção / Conselho de Direcção" }, { "code": 3, "label_pt": "Conselho Fiscal" }, { "code": 4, "label_pt": "Comissões / núcleos" }, { "code": 96, "label_pt": "Outro" } ],
+          "columns": [
+            { "col": "c0", "name": "body", "label_pt": "Órgão", "label_en": "Body", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "exists", "label_pt": "Existe", "label_en": "Exists (Y/N)", "type": "yes_no", "list": "yes_no" },
+            { "col": "c2", "name": "members", "label_pt": "Nº membros", "label_en": "No. members", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "women", "label_pt": "Nº mulheres", "label_en": "No. women", "type": "number", "validation": "number >= 0; women <= members" },
+            { "col": "c4", "name": "last_election_year", "label_pt": "Ano da última eleição", "label_en": "Year of last election", "type": "number", "validation": "number >= 0" }
+          ]
+        },
+        {
+          "id": "J.09", "var": "qJ_09", "name": "governance_practices", "table": "roster_j_09_governance_practices",
+          "kind": "fixed",
+          "label_pt": "Funcionamento da associação",
+          "label_en": "Association functioning",
+          "rows": [ { "code": 1, "label_pt": "Reuniões da Assembleia Geral" }, { "code": 2, "label_pt": "Plano anual de actividades" }, { "code": 3, "label_pt": "Relatórios de actividades" }, { "code": 4, "label_pt": "Prestação de contas aos membros" }, { "code": 5, "label_pt": "Conta bancária da associação" }, { "code": 6, "label_pt": "Livro de actas" }, { "code": 7, "label_pt": "Registo / lista de membros" }, { "code": 8, "label_pt": "Cobrança de quotas" } ],
+          "columns": [
+            { "col": "c0", "name": "practice", "label_pt": "Prática", "label_en": "Practice", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "performed", "label_pt": "Realiza", "label_en": "Performed (Y/N)", "type": "yes_no", "list": "yes_no" },
+            { "col": "c2", "name": "frequency", "label_pt": "Frequência", "label_en": "Frequency", "type": "select_one", "options": [ { "code": 1, "label_pt": "mensal" }, { "code": 2, "label_pt": "trimestral" }, { "code": 3, "label_pt": "semestral" }, { "code": 4, "label_pt": "anual" }, { "code": 5, "label_pt": "irregular" } ] },
+            { "col": "c3", "name": "last_date", "label_pt": "Data da última vez (mês/ano)", "label_en": "Last time (month/year)", "type": "text" }
+          ]
+        },
+        {
+          "id": "J.13", "var": "qJ_13", "name": "association_partners", "table": "roster_j_13_association_partners",
+          "kind": "repeatable", "paper_rows": 4,
+          "label_pt": "Parceiros que apoiam a associação",
+          "label_en": "Partners supporting the association",
+          "network_source": true,
+          "columns": [
+            { "col": "c0", "name": "partner_name", "label_pt": "Nome do parceiro", "label_en": "Partner name", "type": "text", "validation": "required if row exists" },
+            { "col": "c1", "name": "actor_type", "label_pt": "Tipo de actor", "label_en": "Actor type (0.13 codes)", "type": "select_one", "list": "actor_type" },
+            { "col": "c2", "name": "support_type", "label_pt": "Tipo de apoio", "label_en": "Type of support", "type": "select_one", "options": [ { "code": 1, "label_pt": "técnico" }, { "code": 2, "label_pt": "financeiro" }, { "code": 3, "label_pt": "insumos / equipamento" }, { "code": 4, "label_pt": "mercado" }, { "code": 5, "label_pt": "formação" }, { "code": 6, "label_pt": "legalização" } ] },
+            { "col": "c3", "name": "start_year", "label_pt": "Início (ano)", "label_en": "Start year", "type": "number", "validation": "number >= 0" },
+            { "col": "c4", "name": "end_year", "label_pt": "Fim (ano)", "label_en": "End year", "type": "number", "validation": "number >= 0" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "K",
+      "order": 11,
+      "title_pt": "Organizações nacionais e estrangeiras",
+      "title_en": "National and foreign organisations",
+      "applies_to": [3],
+      "relevance": "q0_12 = 1 AND q0_13 = 3",
+      "fields": [
+        { "id": "K.01", "var": "qK_01", "name": "org_type", "label_pt": "Tipo de organização", "label_en": "Type of organisation", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "ONG nacional" }, { "code": 2, "label_pt": "ONG internacional" }, { "code": 3, "label_pt": "Organização da sociedade civil / comunitária" }, { "code": 4, "label_pt": "Agência de cooperação bilateral" }, { "code": 5, "label_pt": "Agência multilateral / Nações Unidas" }, { "code": 6, "label_pt": "Instituição de investigação" }, { "code": 7, "label_pt": "Instituição de ensino" }, { "code": 8, "label_pt": "Fundação / organização religiosa" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "K.02", "var": "qK_02", "name": "legal_nature", "label_pt": "Natureza jurídica", "label_en": "Legal nature", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Associação sem fins lucrativos" }, { "code": 2, "label_pt": "Fundação" }, { "code": 3, "label_pt": "Instituto / entidade pública" }, { "code": 4, "label_pt": "Organismo internacional (acordo de sede)" }, { "code": 5, "label_pt": "Representação de ONG estrangeira" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "K.03", "var": "qK_03", "name": "origin", "label_pt": "Origem", "label_en": "Origin (national / foreign)", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Nacional" }, { "code": 2, "label_pt": "Estrangeira" } ], "skip": "If = 1 → skip to K.05" },
+        { "id": "K.04", "var": "qK_04", "name": "origin_country", "label_pt": "País de origem / sede", "label_en": "Country of origin / headquarters", "type": "text", "required": "C", "relevance": "qK_03 = 2", "validation": "max 255 chars" },
+        { "id": "K.05", "var": "qK_05", "name": "has_mou_gov", "label_pt": "Tem memorando ou acordo formal com a DPAP / SDAE?", "label_en": "Has an MoU or formal agreement with DPAP / SDAE?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "K.06", "var": "qK_06", "name": "thematic_areas", "label_pt": "Áreas temáticas de intervenção", "label_en": "Thematic areas of intervention", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Produção agrícola" }, { "code": 2, "label_pt": "Pecuária / sanidade animal" }, { "code": 3, "label_pt": "Pesca" }, { "code": 4, "label_pt": "Aquacultura" }, { "code": 5, "label_pt": "Extensão / assistência técnica" }, { "code": 6, "label_pt": "Segurança alimentar e nutricional" }, { "code": 7, "label_pt": "Mudanças climáticas e resiliência" }, { "code": 8, "label_pt": "Gestão de recursos naturais" }, { "code": 9, "label_pt": "Género e juventude" }, { "code": 10, "label_pt": "Mercados e cadeias de valor" }, { "code": 11, "label_pt": "Finanças rurais" }, { "code": 12, "label_pt": "Investigação" }, { "code": 13, "label_pt": "Formação / ensino" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "K.09", "var": "qK_09", "name": "target_groups", "label_pt": "Grupos-alvo prioritários", "label_en": "Priority target groups", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Pequenos produtores" }, { "code": 2, "label_pt": "Mulheres" }, { "code": 3, "label_pt": "Jovens" }, { "code": 4, "label_pt": "Associações / cooperativas" }, { "code": 5, "label_pt": "Pescadores artesanais" }, { "code": 6, "label_pt": "Empresas / PME" }, { "code": 7, "label_pt": "Instituições públicas" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 }
+      ],
+      "rosters": [
+        {
+          "id": "K.07", "var": "qK_07", "name": "org_staff", "table": "roster_k_07_org_staff",
+          "kind": "fixed",
+          "label_pt": "Pessoal afecto à Província de Maputo",
+          "label_en": "Staff assigned to Maputo Province",
+          "rows": [ { "code": 1, "label_pt": "Técnicos superiores" }, { "code": 2, "label_pt": "Técnicos médios / extensionistas" }, { "code": 3, "label_pt": "Pessoal de apoio" } ],
+          "columns": [
+            { "col": "c0", "name": "category", "label_pt": "Categoria", "label_en": "Category", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "men", "label_pt": "Homens", "label_en": "Men", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "women", "label_pt": "Mulheres", "label_en": "Women", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "total", "label_pt": "Total", "label_en": "Total", "type": "number", "calc": "men + women", "readonly": true }
+          ]
+        },
+        {
+          "id": "K.08", "var": "qK_08", "name": "org_programmes", "table": "roster_k_08_org_programmes",
+          "kind": "repeatable", "paper_rows": 5,
+          "label_pt": "Programas, projectos e serviços em curso ou concluídos nos últimos 3 anos",
+          "label_en": "Programmes, projects and services ongoing or completed in the last 3 years",
+          "programme_source": true,
+          "columns": [
+            { "col": "c0", "name": "name", "label_pt": "Nome do programa / projecto", "label_en": "Programme / project name", "type": "text", "validation": "required if row exists" },
+            { "col": "c1", "name": "thematic_area", "label_pt": "Área temática", "label_en": "Thematic area (K.06 codes)", "type": "select_one" },
+            { "col": "c2", "name": "districts", "label_pt": "Distritos (cód.)", "label_en": "Districts (codes)", "type": "select_multiple", "list": "districts" },
+            { "col": "c3", "name": "beneficiaries_men", "label_pt": "Benef. H", "label_en": "Beneficiaries – men", "type": "number", "validation": "number >= 0" },
+            { "col": "c4", "name": "beneficiaries_women", "label_pt": "Benef. M", "label_en": "Beneficiaries – women", "type": "number", "validation": "number >= 0" },
+            { "col": "c5", "name": "funding_source", "label_pt": "Fonte de financiamento", "label_en": "Funding source", "type": "text" },
+            { "col": "c6", "name": "budget_usd", "label_pt": "Orçamento (USD)", "label_en": "Budget (USD)", "type": "number", "validation": "number >= 0" },
+            { "col": "c7", "name": "start", "label_pt": "Início (mm/aa)", "label_en": "Start (mm/yy)", "type": "date", "format": "month_year" },
+            { "col": "c8", "name": "end", "label_pt": "Fim (mm/aa)", "label_en": "End (mm/yy)", "type": "date", "format": "month_year" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "L",
+      "order": 12,
+      "title_pt": "Empresas e operadores privados",
+      "title_en": "Companies and private operators",
+      "applies_to": [4],
+      "relevance": "q0_12 = 1 AND q0_13 = 4",
+      "fields": [
+        { "id": "L.01", "var": "qL_01", "name": "legal_form", "label_pt": "Forma jurídica", "label_en": "Legal form", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Empresário em nome individual" }, { "code": 2, "label_pt": "Sociedade por quotas (Lda.)" }, { "code": 3, "label_pt": "Sociedade anónima (SA)" }, { "code": 4, "label_pt": "Cooperativa" }, { "code": 5, "label_pt": "Sucursal de empresa estrangeira" }, { "code": 6, "label_pt": "Operador informal" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "L.02", "var": "qL_02", "name": "capital_origin", "label_pt": "Origem do capital", "label_en": "Origin of capital", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Nacional" }, { "code": 2, "label_pt": "Estrangeiro" }, { "code": 3, "label_pt": "Misto" } ], "skip": "If = 1 → skip to L.04" },
+        { "id": "L.03", "var": "qL_03", "name": "capital_country", "label_pt": "País de origem do capital estrangeiro", "label_en": "Country of origin of foreign capital", "type": "text", "required": "C", "relevance": "qL_02 IN (2, 3)", "validation": "max 255 chars" },
+        { "id": "L.04", "var": "qL_04", "name": "company_size", "label_pt": "Dimensão da empresa (por número de trabalhadores)", "label_en": "Company size (by number of workers)", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Micro (1–4)" }, { "code": 2, "label_pt": "Pequena (5–49)" }, { "code": 3, "label_pt": "Média (50–100)" }, { "code": 4, "label_pt": "Grande (mais de 100)" } ], "todo": "OI-2: confirm thresholds against national MSME classification" },
+        { "id": "L.05", "var": "qL_05", "name": "turnover_band", "label_pt": "Volume de negócios anual (último ano fiscal)", "label_en": "Annual turnover band (last fiscal year)", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Até 1 milhão MT" }, { "code": 2, "label_pt": "1 a 15 milhões MT" }, { "code": 3, "label_pt": "15 a 60 milhões MT" }, { "code": 4, "label_pt": "Mais de 60 milhões MT" }, { "code": 5, "label_pt": "Não declara" } ], "todo": "OI-2" },
+        { "id": "L.06", "var": "qL_06", "name": "business_branches", "label_pt": "Ramo de actividade", "label_en": "Branch(es) of activity", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Sementes" }, { "code": 2, "label_pt": "Fertilizantes / agroquímicos" }, { "code": 3, "label_pt": "Rações / medicamentos veterinários" }, { "code": 4, "label_pt": "Equipamento / maquinaria" }, { "code": 5, "label_pt": "Produção agrícola" }, { "code": 6, "label_pt": "Produção pecuária" }, { "code": 7, "label_pt": "Pesca / aquacultura" }, { "code": 8, "label_pt": "Processamento / agro-indústria" }, { "code": 9, "label_pt": "Comercialização / exportação" }, { "code": 10, "label_pt": "Logística, armazenagem, frio" }, { "code": 11, "label_pt": "Serviços de mecanização" }, { "code": 12, "label_pt": "Consultoria / assistência técnica" }, { "code": 13, "label_pt": "Serviços financeiros" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "L.07", "var": "qL_07", "name": "cae_code", "label_pt": "Código de actividade económica (CAE)", "label_en": "Economic activity classification code (CAE)", "type": "text", "required": "N", "validation": "max 255 chars" },
+        { "id": "L.09", "var": "qL_09", "name": "works_with_producers", "label_pt": "Trabalha com produtores locais (fornecedores ou fomento)?", "label_en": "Works with local producers (suppliers / outgrowers)?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ], "skip": "If = 2 → skip to L.11" },
+        { "id": "L.10", "var": "qL_10", "name": "supplier_producers", "label_pt": "Número de produtores fornecedores / em fomento (homens / mulheres)", "label_en": "Number of supplier / outgrower producers (men / women)", "type": "integer", "required": "C", "relevance": "qL_09 = 1", "unit": "H / M", "subfields": ["men", "women"], "validation": "integer >= 0, max 5 digits; store as two integer sub-fields" },
+        { "id": "L.12", "var": "qL_12", "name": "planned_investment", "label_pt": "Prevê investimentos na província nos próximos 3 anos? (descrever)", "label_en": "Planned investments in the province in the next 3 years (description)", "type": "text", "required": "N", "validation": "max 255 chars" }
+      ],
+      "rosters": [
+        {
+          "id": "L.08", "var": "qL_08", "name": "products", "table": "roster_l_08_products",
+          "kind": "repeatable", "paper_rows": 4,
+          "label_pt": "Principais produtos / serviços",
+          "label_en": "Main products / services",
+          "columns": [
+            { "col": "c0", "name": "product", "label_pt": "Produto / serviço", "label_en": "Product / service", "type": "text", "validation": "required if row exists" },
+            { "col": "c1", "name": "annual_volume", "label_pt": "Volume anual", "label_en": "Annual volume", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "unit", "label_pt": "Unidade", "label_en": "Unit", "type": "select_one" },
+            { "col": "c3", "name": "market", "label_pt": "Mercado", "label_en": "Market", "type": "select_one", "options": [ { "code": 1, "label_pt": "local" }, { "code": 2, "label_pt": "provincial" }, { "code": 3, "label_pt": "nacional" }, { "code": 4, "label_pt": "exportação" } ] }
+          ]
+        },
+        {
+          "id": "L.11", "var": "qL_11", "name": "company_programmes", "table": "roster_l_11_company_programmes",
+          "kind": "repeatable", "paper_rows": 3,
+          "label_pt": "Programas e serviços prestados a produtores ou comunidades",
+          "label_en": "Programmes and services provided to producers or communities",
+          "programme_source": true,
+          "columns": [
+            { "col": "c0", "name": "name", "label_pt": "Programa / serviço", "label_en": "Programme / service", "type": "text", "validation": "required if row exists" },
+            { "col": "c1", "name": "districts", "label_pt": "Distritos (cód.)", "label_en": "Districts (codes)", "type": "select_multiple", "list": "districts" },
+            { "col": "c2", "name": "beneficiaries_men", "label_pt": "Benef. H", "label_en": "Beneficiaries – men", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "beneficiaries_women", "label_pt": "Benef. M", "label_en": "Beneficiaries – women", "type": "number", "validation": "number >= 0" },
+            { "col": "c4", "name": "funding", "label_pt": "Financiamento", "label_en": "Funding", "type": "text" },
+            { "col": "c5", "name": "start", "label_pt": "Início", "label_en": "Start", "type": "date", "format": "month_year" },
+            { "col": "c6", "name": "end", "label_pt": "Fim", "label_en": "End", "type": "date", "format": "month_year" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "M",
+      "order": 13,
+      "title_pt": "Instituições públicas",
+      "title_en": "Public institutions",
+      "applies_to": [5],
+      "relevance": "q0_12 = 1 AND q0_13 = 5",
+      "fields": [
+        { "id": "M.01", "var": "qM_01", "name": "admin_level", "label_pt": "Nível administrativo", "label_en": "Administrative level", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Provincial" }, { "code": 2, "label_pt": "Distrital" }, { "code": 3, "label_pt": "Posto Administrativo" }, { "code": 4, "label_pt": "Localidade" } ] },
+        { "id": "M.02", "var": "qM_02", "name": "institution_type", "label_pt": "Tipo de instituição", "label_en": "Type of institution", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Direcção Provincial" }, { "code": 2, "label_pt": "Serviço Distrital (SDAE)" }, { "code": 3, "label_pt": "Instituto / agência pública" }, { "code": 4, "label_pt": "Centro de investigação / estação zonal" }, { "code": 5, "label_pt": "Centro / posto de pesca" }, { "code": 6, "label_pt": "Posto veterinário" }, { "code": 7, "label_pt": "Administração local" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "M.03", "var": "qM_03", "name": "parent_institution", "label_pt": "Instituição de tutela / subordinação", "label_en": "Supervising / parent institution", "type": "text", "required": "Y", "validation": "max 255 chars" },
+        { "id": "M.04", "var": "qM_04", "name": "competences", "label_pt": "Competências no sector", "label_en": "Competences in the sector", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Extensão agrária" }, { "code": 2, "label_pt": "Sanidade animal / veterinária" }, { "code": 3, "label_pt": "Sanidade vegetal" }, { "code": 4, "label_pt": "Licenciamento de pesca / aquacultura" }, { "code": 5, "label_pt": "Fiscalização" }, { "code": 6, "label_pt": "Estatística e planificação" }, { "code": 7, "label_pt": "Terra (DUAT)" }, { "code": 8, "label_pt": "Infra-estruturas (regadios, tanques)" }, { "code": 9, "label_pt": "Investigação" }, { "code": 10, "label_pt": "Comercialização / mercados" }, { "code": 96, "label_pt": "Outro" } ], "other_code": 96 },
+        { "id": "M.06", "var": "qM_06", "name": "work_resources", "label_pt": "Meios de trabalho disponíveis", "label_en": "Work resources available", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Viaturas" }, { "code": 2, "label_pt": "Motorizadas" }, { "code": 3, "label_pt": "Computadores" }, { "code": 4, "label_pt": "Acesso à internet" }, { "code": 5, "label_pt": "Laboratório" }, { "code": 6, "label_pt": "Equipamento GPS / tablets" } ] },
+        { "id": "M.08", "var": "qM_08", "name": "producers_assisted", "label_pt": "Número de produtores assistidos nos últimos 12 meses (homens / mulheres)", "label_en": "Producers assisted in the last 12 months (men / women)", "type": "integer", "required": "Y", "unit": "H / M", "subfields": ["men", "women"], "validation": "integer >= 0, max 6 digits; store as two integer sub-fields" },
+        { "id": "M.09", "var": "qM_09", "name": "has_info_system", "label_pt": "Possui base de dados / sistema de informação do sector? (especificar)", "label_en": "Has a sector database / information system? (specify)", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim, digital" }, { "code": 2, "label_pt": "Sim, em papel" }, { "code": 3, "label_pt": "Não" } ] }
+      ],
+      "rosters": [
+        {
+          "id": "M.05", "var": "qM_05", "name": "hr", "table": "roster_m_05_hr",
+          "kind": "fixed",
+          "label_pt": "Recursos humanos",
+          "label_en": "Human resources",
+          "rows": [ { "code": 1, "label_pt": "Técnicos superiores" }, { "code": 2, "label_pt": "Técnicos médios" }, { "code": 3, "label_pt": "Técnicos básicos" }, { "code": 4, "label_pt": "Extensionistas" }, { "code": 5, "label_pt": "Veterinários / paraveterinários" }, { "code": 6, "label_pt": "Fiscais" } ],
+          "columns": [
+            { "col": "c0", "name": "category", "label_pt": "Categoria", "label_en": "Category", "type": "select_one", "role": "row_key", "readonly": true },
+            { "col": "c1", "name": "men", "label_pt": "Homens", "label_en": "Men", "type": "number", "validation": "number >= 0" },
+            { "col": "c2", "name": "women", "label_pt": "Mulheres", "label_en": "Women", "type": "number", "validation": "number >= 0" },
+            { "col": "c3", "name": "total", "label_pt": "Total", "label_en": "Total", "type": "number", "calc": "men + women", "readonly": true }
+          ]
+        },
+        {
+          "id": "M.07", "var": "qM_07", "name": "public_programmes", "table": "roster_m_07_public_programmes",
+          "kind": "repeatable", "paper_rows": 4,
+          "label_pt": "Programas e projectos públicos em curso",
+          "label_en": "Ongoing public programmes and projects",
+          "programme_source": true,
+          "columns": [
+            { "col": "c0", "name": "name", "label_pt": "Programa / projecto", "label_en": "Programme / project", "type": "text", "validation": "required if row exists" },
+            { "col": "c1", "name": "thematic_area", "label_pt": "Área temática", "label_en": "Thematic area", "type": "select_one" },
+            { "col": "c2", "name": "districts", "label_pt": "Distritos (cód.)", "label_en": "Districts (codes)", "type": "select_multiple", "list": "districts" },
+            { "col": "c3", "name": "beneficiaries_men", "label_pt": "Benef. H", "label_en": "Beneficiaries – men", "type": "number", "validation": "number >= 0" },
+            { "col": "c4", "name": "beneficiaries_women", "label_pt": "Benef. M", "label_en": "Beneficiaries – women", "type": "number", "validation": "number >= 0" },
+            { "col": "c5", "name": "funding", "label_pt": "Financiamento", "label_en": "Funding", "type": "text" },
+            { "col": "c6", "name": "start", "label_pt": "Início", "label_en": "Start", "type": "date", "format": "month_year" },
+            { "col": "c7", "name": "end", "label_pt": "Fim", "label_en": "End", "type": "date", "format": "month_year" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "N",
+      "order": 14,
+      "title_pt": "Articulação multi-actor e com entidades governamentais",
+      "title_en": "Multi-actor linkages and coordination with government",
+      "applies_to": [1, 2, 3, 4, 5],
+      "relevance": "q0_12 = 1",
+      "fields": [
+        { "id": "N.01", "var": "qN_01", "name": "knows_gov_plans", "label_pt": "Conhece as actividades planificadas pelo Governo para o sector (ex.: PESOD, planos distritais)?", "label_en": "Aware of government planned activities for the sector?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Parcialmente" }, { "code": 3, "label_pt": "Não" } ] },
+        { "id": "N.02", "var": "qN_02", "name": "participates_planning", "label_pt": "Participa em espaços de planificação ou consulta (Conselhos Consultivos, plataformas)?", "label_en": "Participates in planning / consultation forums?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Regularmente" }, { "code": 2, "label_pt": "Ocasionalmente" }, { "code": 3, "label_pt": "Nunca" } ] },
+        { "id": "N.04", "var": "qN_04", "name": "contribution_to_targets", "label_pt": "Como contribui para as metas do sector definidas pelo Governo?", "label_en": "How the actor contributes to government sector targets", "type": "text", "required": "Y", "validation": "max 255 chars" },
+        { "id": "N.05", "var": "qN_05", "name": "coordination_challenges", "label_pt": "Principais desafios de coordenação com as entidades governamentais", "label_en": "Main coordination challenges with government entities", "type": "select_multiple", "required": "Y", "options": [ { "code": 1, "label_pt": "Falta de informação" }, { "code": 2, "label_pt": "Fraca comunicação" }, { "code": 3, "label_pt": "Duplicação de intervenções" }, { "code": 4, "label_pt": "Burocracia" }, { "code": 5, "label_pt": "Falta de recursos" }, { "code": 6, "label_pt": "Nenhum" }, { "code": 96, "label_pt": "Outro" } ], "exclusive_code": 6, "other_code": 96 },
+        { "id": "N.06", "var": "qN_06", "name": "coordination_suggestions", "label_pt": "Sugestões para melhorar a articulação entre actores", "label_en": "Suggestions to improve coordination between actors", "type": "text", "required": "N", "validation": "max 255 chars" }
+      ],
+      "rosters": [
+        {
+          "id": "N.03", "var": "qN_03", "name": "relationships", "table": "roster_n_03_relationships",
+          "kind": "repeatable", "paper_rows": 6,
+          "label_pt": "Relações com outros actores do sector",
+          "label_en": "Relationships with other sector actors (network edges)",
+          "network_source": true,
+          "columns": [
+            { "col": "c0", "name": "partner_name", "label_pt": "Nome do actor", "label_en": "Actor name", "type": "text", "validation": "required if row exists" },
+            { "col": "c1", "name": "partner_actor_type", "label_pt": "Tipo de actor (cód. 0.13)", "label_en": "Actor type (0.13 codes)", "type": "select_one", "list": "actor_type" },
+            { "col": "c2", "name": "partner_level", "label_pt": "Nível", "label_en": "Level (A.17 codes)", "type": "select_one", "list": "operation_level" },
+            { "col": "c3", "name": "relation_types", "label_pt": "Tipo de relação", "label_en": "Relationship type(s)", "type": "select_multiple", "options": [ { "code": 1, "label_pt": "apoio técnico" }, { "code": 2, "label_pt": "financeiro" }, { "code": 3, "label_pt": "comercial" }, { "code": 4, "label_pt": "insumos" }, { "code": 5, "label_pt": "coordenação / planificação" }, { "code": 6, "label_pt": "regulação / licenciamento" }, { "code": 7, "label_pt": "formação" } ] },
+            { "col": "c4", "name": "frequency", "label_pt": "Frequência", "label_en": "Frequency", "type": "select_one", "options": [ { "code": 1, "label_pt": "semanal" }, { "code": 2, "label_pt": "mensal" }, { "code": 3, "label_pt": "trimestral" }, { "code": 4, "label_pt": "anual / pontual" } ] },
+            { "col": "c5", "name": "rating", "label_pt": "Avaliação", "label_en": "Rating", "type": "select_one", "options": [ { "code": 1, "label_pt": "boa" }, { "code": 2, "label_pt": "razoável" }, { "code": 3, "label_pt": "fraca" } ] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "key": "O",
+      "order": 15,
+      "title_pt": "Encerramento e controlo de qualidade",
+      "title_en": "Closing and quality control",
+      "applies_to": [1, 2, 3, 4, 5],
+      "relevance": "q0_12 = 1",
+      "fields": [
+        { "id": "O.01", "var": "qO_01", "name": "future_contact_ok", "label_pt": "Aceita ser contactado no futuro para actualização dos dados?", "label_en": "Agrees to be contacted in future for data updates?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "O.02", "var": "qO_02", "name": "enumerator_notes", "label_pt": "Observações do inquiridor", "label_en": "Enumerator observations", "type": "text", "required": "N", "validation": "max 255 chars" },
+        { "id": "O.03", "var": "qO_03", "name": "interview_quality", "label_pt": "Avaliação da qualidade da entrevista pelo inquiridor", "label_en": "Enumerator rating of interview quality", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Boa" }, { "code": 2, "label_pt": "Razoável" }, { "code": 3, "label_pt": "Fraca" } ] },
+        { "id": "O.04", "var": "qO_04", "name": "supervisor_verified", "label_pt": "Questionário verificado pelo supervisor?", "label_en": "Questionnaire verified by supervisor?", "type": "select_one", "required": "Y", "options": [ { "code": 1, "label_pt": "Sim" }, { "code": 2, "label_pt": "Não" } ] },
+        { "id": "O.05", "var": "qO_05", "name": "verification_date", "label_pt": "Data da verificação e assinatura do supervisor", "label_en": "Verification date (supervisor sign-off)", "type": "date", "required": "Y", "validation": "valid date <= today" }
+      ],
+      "rosters": []
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+# DPAP backend stack: PostgreSQL/PostGIS + the Spring Boot API.
+#
+# Usage (dev):  docker compose up --build       — uses the safe defaults below.
+# Usage (prod): the values below read from the environment first (see
+#   ../deploy.sh), so production secrets are injected without editing this file;
+#   the `:-default` fallbacks keep local dev working with no env set.
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: dpap
+      POSTGRES_USER: dpap
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-dpap}
+    ports:
+      - "5432:5432"
+    volumes:
+      - dpap_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dpap -d dpap"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/dpap
+      DB_USER: dpap
+      DB_PASSWORD: ${DB_PASSWORD:-dpap}
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production-at-least-32-bytes-long}
+      # Dev default allows the web app (3000) + mobile PWA dev/preview (5173/4173).
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:5173,http://localhost:4173}
+      # Dev seeds demo users/actors; deploy.sh sets this to "false".
+      SEED_DEMO_DATA: ${SEED_DEMO_DATA:-true}
+    ports:
+      - "8080:8080"
+
+volumes:
+  dpap_db:
